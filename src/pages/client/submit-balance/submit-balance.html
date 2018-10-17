@@ -1,0 +1,163 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            订单草稿
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-form-group">
+        <div class="group-content">
+            <label>选择类型：</label>
+            <label class="option" [ngClass]="{active: info.order_kind == 'I'}">
+                <input type="radio" name="orderKind" value="I" [(ngModel)]="info.order_kind"/>
+                下单购买
+            </label>
+            <label class="option" [ngClass]="{active: info.order_kind == 'R'}">
+                <input type="radio" name="orderKind" value="R" [(ngModel)]="info.order_kind"/>
+                售后维修
+            </label>
+        </div>
+    </div>
+
+    <ion-input [(ngModel)]="info.order_kind" readonly style="display: none" (ionChange)="changeKind(info.order_kind)"></ion-input>
+
+    <form class="form-horizontal" margin-top *ngIf="info.order_kind == 'R'">
+        <div class="form-group">
+            <label>合同编号：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceKind" [(ngModel)]="selectedOrderIndex" (ionChange)="selectOrder(selectedOrderIndex)">
+                <ion-option *ngFor="let order of myDeliveryOrders; let i = index" value="{{i}}">{{order.contract_no}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top *ngIf="selectedOrderIndex != 0 && info.order_kind == 'R'" >
+        <div class="form-group">
+            <label>型号：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceKind" [(ngModel)]="orderInfo.balance_kind" desibled>
+                <ion-option value="{{orderInfo.balance_kind}}">{{orderInfo.balance_kind_name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top  *ngIf="selectedOrderIndex != 0 && info.order_kind == 'R'">
+        <div class="form-group">
+            <label>规格：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceType" [(ngModel)]="orderInfo.balance_type" desibled>
+                <ion-option value="{{orderInfo.balance_type}}">{{orderInfo.balance_type_name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top *ngIf="selectedOrderIndex != 0 && info.order_kind == 'R'">
+        <div class="form-group">
+            <label>称重系统类型：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceSubType" [(ngModel)]="orderInfo.balance_subtype" desibled>
+                <ion-option value="{{orderInfo.balance_subtype}}">{{orderInfo.balance_subtype_name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top *ngIf="selectedOrderIndex != 0 && info.order_kind == 'R'">
+        <div class="form-group">
+            <label>标准配置：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceconfigType" [(ngModel)]="orderInfo.balance_config" desibled>
+                <ion-option value="{{orderInfo.balance_config}}">{{orderInfo.balance_config_name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top *ngIf="selectedOrderIndex == 0 || info.order_kind == 'I'">
+        <div class="form-group">
+            <label>型号：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceKind" [(ngModel)]="info.selected_balanceKind" (ionChange)="reloadConfig()">
+                <ion-option *ngFor="let mKind of balanceKind; let i = index" value="{{mKind.id}}">{{mKind.name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top  *ngIf="selectedOrderIndex == 0 || info.order_kind == 'I'">
+        <div class="form-group">
+            <label>规格：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceType" [(ngModel)]="info.selected_balanceType" (ionChange)="reloadConfig()">
+                <ion-option *ngFor="let mType of balanceType; let i = index" value="{{mType.id}}">{{mType.name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top  *ngIf="selectedOrderIndex == 0 || info.order_kind == 'I'">
+        <div class="form-group">
+            <label>称重系统类型：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceSubType" [(ngModel)]="info.selected_balanceSubType" (ionChange)="reloadConfig()">
+                <ion-option *ngFor="let mSubType of balanceSubType; let i = index" value="{{mSubType.id}}">{{mSubType.name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top  *ngIf="selectedOrderIndex == 0 || info.order_kind == 'I'">
+        <div class="form-group">
+            <label>标准配置：</label>
+            <ion-select okText="确定" cancelText="取消" style="width: 100%" name="balanceSubType" [(ngModel)]="info.selected_balanceConfig">
+                <ion-option *ngFor="let mConfig of balanceConfig; let i = index" value="{{mConfig.id}}">{{mConfig.name}}</ion-option>
+            </ion-select>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>数量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="number" name="amount" [(ngModel)]="info.amount" text-end></ion-input>
+            <label>台</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>预期价格：</label>
+            <ion-input type="number" name="budget" [(ngModel)]="info.budget" text-end></ion-input>
+            <label>元</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>联系电话：</label>
+            <ion-input type="number" name="contact_number"  [(ngModel)]="info.contact_number"></ion-input>
+            <label style="color: #f7f7f7;">元</label>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>收货地址：</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress()"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="location" [(ngModel)]="info.address" readonly="true"></ion-textarea>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <label style="margin-bottom: 7px; display: inline-block;">备注：</label>
+        <div class="form-group">
+            <ion-textarea name="introduction" [(ngModel)]="info.note"></ion-textarea>
+        </div>
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="submitBalance()">申请订单</button>
+    </div>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="cancel()">取  消</button>
+    </div>
+
+</ion-content>

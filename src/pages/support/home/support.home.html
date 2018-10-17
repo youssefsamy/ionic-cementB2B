@@ -1,0 +1,186 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button menuToggle icon-only>
+                <ion-icon name='menu' menuToggle></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons start (click)="viewLocation()">
+            <button ion-button icon-only>
+                <ion-icon name="pin"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            首页
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goToNotification()">
+                <ion-icon name='notifications'></ion-icon>
+            </button>
+            <i class="notify" *ngIf="setting.badge.notify == 1"></i>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goToSettingPage()">
+                <ion-icon name="settings"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-segment [(ngModel)]="state" (ionChange)="stateChanged()">
+        <ion-segment-button value="order" class="order">
+            在线抢单
+            <ion-badge class="tab-badge badge badge-ios badge-ios-danger" ng-reflect-color="danger" *ngIf="setting.badge.servicer_first>0">
+                {{setting.badge.servicer_first}}
+            </ion-badge>
+        </ion-segment-button>
+        <ion-segment-button value="pending" class="pending">
+            待处理
+            <ion-badge class="tab-badge badge badge-ios badge-ios-danger" ng-reflect-color="danger" *ngIf="setting.badge.servicer_second>0">
+                {{setting.badge.servicer_second}}
+            </ion-badge>
+        </ion-segment-button>
+        <ion-segment-button value="completed" class="completed">
+            已完成
+            <ion-badge class="tab-badge badge badge-ios badge-ios-danger" ng-reflect-color="danger" *ngIf="setting.badge.servicer_third>0">
+                {{setting.badge.servicer_third}}
+            </ion-badge>
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="state">
+        <div *ngSwitchCase="'order'">
+            <div class="custom-card" *ngFor="let mOrder of orders; let i = index">
+                <div class="card-header">
+                    <label>订单</label>
+                    <label>{{mOrder.order_no}}</label>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3><label>地址</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.address}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>价格</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.budget}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>距离</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.delivery_distance}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>单价</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.dis_price}}</label></ion-col>
+                        </ion-row>
+                        <ion-row ion-item>
+                            <button ion-button color="danger" item-end (click)="accept(i)">接受</button>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'pending'">
+            <div class="custom-card" *ngFor="let mOrder of pending_orders; let i = index">
+                <div class="card-header">
+                    <label>订单</label>
+                    <label>{{mOrder.order_no}}</label>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+
+                        <ion-row>
+                            <ion-col col-3><label>地址</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.address}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>价格</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.servicer_budget}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>距离</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.distance}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>单价</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.km_budget}}</label></ion-col>
+                        </ion-row>
+                        <ion-row ion-item *ngIf="userType == 'I'|| userType == 'D'"
+                                 [ngClass]="{confirming: mOrder.sub_status == 0, confirmed: mOrder.sub_status == 1}">
+                            <label *ngIf="mOrder.sub_status == 0">状态：待服务</label>
+                            <label *ngIf="mOrder.sub_status == 1">状态：正在服务{{mOrder.verify_number == 1 ? '(一旦證實)':
+                                ''}}</label>
+                            <button *ngIf="mOrder.sub_status == 0" ion-button color="danger" item-end
+                                    (click)="startService(i)">开始服务
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 1" ion-button color="danger" item-end
+                                    (click)="getQrcode(i)">生成二维码
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 1" ion-button color="danger" item-end
+                                    (click)="endService(i)">服务完毕
+                            </button>
+                        </ion-row>
+                        <ion-row ion-item *ngIf="userType == 'B'|| userType == 'R'"
+                                 [ngClass]="{confirming: mOrder.sub_status == 2, confirmed: mOrder.sub_status == 3 || mOrder.sub_status == 4}">
+                            <label *ngIf="mOrder.sub_status == 2">状态：待服务</label>
+                            <label *ngIf="mOrder.sub_status == 3">状态：正在服务</label>
+                            <label *ngIf="mOrder.sub_status == 4">状态：服务完毕</label>
+                            <button *ngIf="mOrder.sub_status == 2" ion-button color="danger" item-end
+                                    (click)="startService(i)">开始服务
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 3" ion-button color="danger" item-end
+                                    (click)="getQrcode(i)">生成二维码
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 3" ion-button color="danger" item-end
+                                    (click)="endService(i)">服务完毕
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 4" ion-button color="danger" item-end
+                                    (click)="allowBalance(i)">确认
+                            </button>
+                            <button *ngIf="mOrder.sub_status == 4" ion-button color="danger" item-end
+                                    (click)="rejectBalance(i)">拒绝
+                            </button>
+
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'completed'">
+            <div class="custom-card" *ngFor="let mOrder of complete_orders; let i = index">
+                <div class="card-header">
+                    <label>订单</label>
+                    <label>{{mOrder.order_no}}</label>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+
+                        <ion-row>
+                            <ion-col col-3><label>地址</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.address}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>价格</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.servicer_budget}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>距离</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.distance}}</label></ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="userType == 'D'">
+                            <ion-col col-3><label>单价</label></ion-col>
+                            <ion-col col-9><label>{{mOrder.km_budget}}</label></ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

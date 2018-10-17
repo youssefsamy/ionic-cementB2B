@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            招聘广告
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-card" *ngFor="let advertise of advertises; let i = index">
+        <div class="card-header">
+            <label>{{advertise.date}}</label>
+        </div>
+        <div class="card-content">
+            <img src="assets/icon/advertise.png">
+            <div class="data-content">
+                <p>标题：{{advertise.title}}</p>
+                <p>要求：{{advertise.description}}</p>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+
+</ion-content>

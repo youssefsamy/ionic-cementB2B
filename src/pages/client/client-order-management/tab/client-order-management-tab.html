@@ -1,0 +1,6 @@
+<ion-tabs tabsPlacement="top" #myTabs [selectedIndex]='tabIndex'>
+    <ion-tab [root]="confirmPage" tabTitle="待确认" tabIcon="confirm-icon" [tabBadge]="setting.badge.confirm" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="payPage" tabTitle="待支付" tabIcon="pay-icon" [tabBadge]="setting.badge.pay" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="pendingPage" tabTitle="待处理" tabIcon="pending-icon" [tabBadge]="setting.badge.pending" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="completePage" tabTitle="已完成" tabIcon="complete-icon" [tabBadge]="setting.badge.complete" tabBadgeStyle="danger"></ion-tab>
+</ion-tabs>

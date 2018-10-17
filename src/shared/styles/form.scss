@@ -1,0 +1,55 @@
+
+/** form styles */
+form {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 20px 15px 0px 15px;
+
+    ion-input {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        color: color($colors, dark);
+        padding-left: 0.9em;
+        padding-right: 0.9em;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        color: color($colors, dark);
+    }
+}
+form.big {
+
+    padding: 30px 20px;
+    margin: 0px 40px;
+
+    .form-group {
+        label {
+            width: 100%;
+            color: color($colors, dark);
+        }
+    }
+
+    .item-inner button[item-right] {
+        height: 77%;
+    }
+}
+form.form-horizontal {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        label:first-child {
+            min-width: 3em;
+        }
+        > *:not(:last-child) {
+            margin-right: 5px;
+        }
+    }
+}

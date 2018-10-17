@@ -1,0 +1,17 @@
+/** button styles */
+a.btn {
+    text-decoration: none;
+    display: inline-block;
+}
+button.middle {
+    //padding-left: 4em;
+    //padding-right: 4em;
+    width: 175px;
+}
+.button[icon-only] {
+    height: auto;
+    background: transparent;
+}
+.button-ios-light {
+    color: color($colors, danger);
+}

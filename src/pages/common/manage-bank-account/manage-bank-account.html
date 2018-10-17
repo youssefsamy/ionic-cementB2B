@@ -1,0 +1,56 @@
+<ion-header>
+
+    <ion-navbar>
+
+        <ion-title>
+            编辑银行帐户信息
+        </ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="main-content">
+    <div class="main-wrapper">
+        <div class="card-number">
+            <ion-row>
+                <ion-col col-2 text-center>
+                    <img src="assets/icon/card-number.png">
+                </ion-col>
+                <ion-col col-10>
+                    <label>银行卡号</label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-10 offset-2 class="border-bottom">
+
+                    <input class="input" placeholder="1234 5678 9012 3456 789">
+                    <img src="assets/icon/btn-plus.png" class="btn-plus">
+
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="bank-user">
+
+            <ion-row>
+                <ion-col col-2 text-center>
+                    <img src="assets/icon/bank-user.png">
+                </ion-col>
+                <ion-col col-10>
+                    <label>开户人</label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-10 offset-2>
+
+                    <input class="input" placeholder="李佳一">
+
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+
+    <div class="button-wrapper" text-center>
+        <button ion-button color="danger" (click)="apply()">确   认</button>
+    </div>
+</ion-content>

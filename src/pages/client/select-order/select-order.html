@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选择产品
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="goToMortar()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-mortar"></i>
+            </ion-thumbnail>
+            <div>
+                混凝土
+            </div>
+        </ion-item>
+
+        <ion-item (click)="goToBalance()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-balance"></i>
+            </ion-thumbnail>
+            <div>
+                电子秤
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

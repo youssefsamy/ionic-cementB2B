@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            充值
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+        <div class="main-wrapper">
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-amount-moeny"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>金额</label>
+                        <label item-end>12000.00¥</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list class="amount-money">
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-payment"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>支付方式</label>
+                    </div>
+                </ion-item>
+
+                <ion-row>
+                    <ion-col col-3></ion-col>
+                    <ion-col col-9>
+                        <ion-list class="amount-money-content">
+                            <ion-item>
+                                <ion-thumbnail class="thumb-42" item-start>
+                                    <i class="custom-icon custom-icon-alipay"></i>
+                                </ion-thumbnail>
+                                <div ion-item>
+                                    <div item-content item-start>支付宝</div>
+                                    <ion-checkbox color="dark" checked="true" item-end></ion-checkbox>
+                                </div>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-thumbnail class="thumb-42" item-start>
+                                    <i class="custom-icon custom-icon-micro-letter"></i>
+                                </ion-thumbnail>
+                                <div ion-item>
+                                    <div item-content item-start>微信</div>
+                                    <ion-checkbox color="dark" checked="true" item-end></ion-checkbox>
+                                </div>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+            <div>
+                <button ion-button color="danger" class="btn-login">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

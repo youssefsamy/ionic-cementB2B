@@ -1,0 +1,47 @@
+page-recharge {
+
+  .main-wrapper > div:last-child{
+    margin-top: 80px;
+    text-align: center;
+
+    button {
+      padding: 0px 50px;
+    }
+  }
+
+  ion-list:first-child {
+    margin-top: 45px;
+  }
+
+  ion-list.amount-money {
+
+    border-bottom: 1px solid #dfdfdf;
+
+    ion-list:first-child {
+      margin: 0px;
+    }
+    ion-list.amount-money-content {
+      border: none;
+
+      ion-thumbnail {
+        padding-right: 0px;
+      }
+
+      ion-item:first-child {
+        border-top: none!important;
+      }
+
+      ion-item:last-child {
+        border-bottom: none!important;
+      }
+
+      ion-item {
+        padding: 0px 12px;
+      }
+
+      div[item-content] {
+
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+page-manage-bank-account {
+    
+    ion-content {
+        
+        ion-col[col-10] {
+            display: flex;
+            align-items: center;
+        }
+        
+        img {
+            vertical-align: middle;
+            width: 30px;
+        }
+        
+        .main-wrapper {
+            margin-top: 60px;
+            background-color: white;
+            border-top: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+            padding: 5px 0px 15px 0px;
+            
+            .card-number {
+                .btn-plus {
+                    width: 35px;
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
+            }
+            
+            .input {
+                border: 1px solid green;
+                line-height: 30px;
+                font-size: 15px;
+                width: 80%;
+                padding: 3px 5px;
+                color: #000;
+                border-radius: 3px;
+            }
+    
+            .border-bottom {
+                border-bottom: 1px solid #dfdfdf;
+                padding-bottom: 15px;
+            }
+        }
+        
+        .button-wrapper {
+            margin-top: 70px;
+            
+            button {
+                width: 150px;
+            }
+        }
+        
+    }
+}

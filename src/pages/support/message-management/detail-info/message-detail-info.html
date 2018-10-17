@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            详情
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-card">
+        <div class="card-header">
+            <label>{{notifications[currentIndex].title}}</label>
+            <label style="float: right; padding-right: 15px">{{notifications[currentIndex].date}}</label>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="card-content">
+            <label>内容：</label><br>
+            <p class="message-content">{{notifications[currentIndex].description}}</p>
+        </div>
+    </div>
+
+    <div margin-top class="button-wrapper">
+        <button ion-button color="danger" [ngClass]="{disable: enablePrev == false}" (click)="prev()">上一个</button>
+        <button ion-button color="danger" [ngClass]="{disable: enableNext == false}" (click)="next()">下一个</button>
+    </div>
+
+</ion-content>

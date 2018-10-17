@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            系统设置
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+        <div class="main-wrapper">
+
+            <ion-list *ngIf="userRole == 'business'">
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-business-status"></i>
+                    </ion-thumbnail>
+                    <div item-content>营业状态</div>
+                    <ion-toggle color="danger" item-end [(ngModel)]="workState" (ngModelChange)="changeWorkState()"></ion-toggle>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-msg-push"></i>
+                    </ion-thumbnail>
+                    <div item-content>系统消息推送</div>
+                    <ion-toggle color="danger" item-end [(ngModel)]="systemNotificationState" (ngModelChange)="changeSystemNotificationState()"></ion-toggle>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-order-notice"></i>
+                    </ion-thumbnail>
+                    <div item-content>订单通知</div>
+                    <ion-toggle color="danger" item-end [(ngModel)]="orderNotificationState" (ngModelChange)="changeOrderNotificationState()"></ion-toggle>
+                </ion-item>
+            </ion-list>
+
+            <ion-list *ngIf="userRole == 'servicer'">
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-working-state"></i>
+                    </ion-thumbnail>
+                    <div item-content>工作状态</div>
+                    <ion-toggle color="danger" item-end [(ngModel)]="workState" (ngModelChange)="changeWorkState()"></ion-toggle>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-beep-tone"></i>
+                    </ion-thumbnail>
+                    <div item-content>提示音</div>
+                    <ion-toggle color="danger" item-end [(ngModel)]="beepTone" (ngModelChange)="changeBeepTone()"></ion-toggle>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-volume"></i>
+                    </ion-thumbnail>
+                    <div item-content item-start>音量</div>
+                    <ion-range [(ngModel)]="brightness"></ion-range>
+
+                </ion-item>
+
+                <ion-item (click)="selectWarningSound()">
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-select-tone"></i>
+                    </ion-thumbnail>
+                    <button ion-item>选择提示音<label item-end>{{warningSound}}</label></button>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item (click)="changeLoginPassword()">
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-key"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>修改登录密码</label>
+                    </div>
+                </ion-item>
+
+                <ion-item (click)="changeCurrencyPassword()">
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-setting-passwd"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>提现密码设置</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-version"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>版本</label>
+                        <label item-end>1.0</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            评价管理
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="goToPraise()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-praise"></i>
+            </ion-thumbnail>
+            <div class="center">
+                    好评
+            </div>
+            <div item-end>
+                {{goodCount}} 个
+            </div>
+            <ion-thumbnail item-end>
+            </ion-thumbnail>
+        </ion-item>
+
+        <ion-item (click)="goToComplaint()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-complaint"></i>
+            </ion-thumbnail>
+            <div class="center">
+                投诉
+            </div>
+            <div item-end>
+                {{badCount}} 个
+            </div>
+            <ion-thumbnail item-end>
+            </ion-thumbnail>
+        </ion-item>
+    </ion-list>
+</ion-content>

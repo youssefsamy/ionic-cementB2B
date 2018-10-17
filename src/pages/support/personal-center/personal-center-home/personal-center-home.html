@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            个人中心
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+        <div class="personal-logo-header" (click)="goToUserInfo()">
+            <div class="person-logo">
+                <img [src]="user.photo" alt="Logo"/>
+            </div>
+            <div>
+                <h2>
+                    <label>用户名：</label>
+                    <label>{{name}}</label>
+                </h2>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+
+            <ion-list>
+                <ion-item (click)="goToCouponPage()">
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-coupon"></i>
+                    </ion-thumbnail>
+                    <button ion-item>我的优惠券</button>
+                </ion-item>
+                <ion-item (click)="goToFundManagement()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-fund"></i>
+                    </ion-thumbnail>
+                    <button ion-item>资金管理<label item-end>{{balanceInfo.balance | number: '1.2-2'}}¥</label></button>
+                </ion-item>
+                <ion-item (click)="goToSettingHome()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-setting"></i>
+                    </ion-thumbnail>
+                    <button ion-item>
+                        系统设置
+                    </button>
+                </ion-item>
+
+                <ion-item (click)="goToAboutUsPage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-aboutus"></i>
+                    </ion-thumbnail>
+                    <button ion-item>关于我们</button>
+                </ion-item>
+            </ion-list>
+
+            <div  class="button_wrapper">
+                <button ion-button color="danger" class="btn-login" (click)="logout()">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</button>
+                <button ion-button color="danger" class="" (click)="delete()" *ngIf="isCloseAvailabe == true">注销</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

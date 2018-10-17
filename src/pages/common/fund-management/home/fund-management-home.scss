@@ -1,0 +1,48 @@
+page-fund-management-home {
+
+    ion-navbar {
+        button {
+            ion-icon.view-fund:before {
+                background-image: url('../assets/icon/yen1.png');
+                content: '';
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                margin-right: 3px;
+            }
+        }
+    }
+
+    .fund-logo-header {
+        text-align: center;
+        color: #316d72;
+        background-color: #f7f7f7;
+        padding-bottom: 50px;
+        .fund-logo {
+            text-align: center;
+            padding-top: 55px;
+
+            img.logo {
+                width: 100px;
+                height: 100px;
+            }
+
+        }
+    }
+
+    .main-wrapper {
+
+        margin-top: 25px;
+
+        > div.button-wrapper {
+            margin-top: 10px;
+            text-align: center;
+
+            button {
+                width: 150px;
+                text-align: center;
+            }
+        }
+    }
+
+}

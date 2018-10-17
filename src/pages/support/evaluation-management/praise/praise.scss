@@ -1,0 +1,35 @@
+page-praise {
+
+    div.rate {
+        ion-col {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        label.rate-val {
+            background-color: #7a7a7a;
+            color: white;
+            margin-top: 5px;
+            padding: 0px 17px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        ul {
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+
+            &.rating li {
+                padding: 3px 5px !important;
+                background: none;
+                color: #ffb400;
+
+                ion-icon {
+                    font-size: 30px;
+                }
+            }
+        }
+
+    }
+
+
+}

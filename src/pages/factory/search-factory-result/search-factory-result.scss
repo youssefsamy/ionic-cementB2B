@@ -1,0 +1,67 @@
+page-search-factory-result {
+    ion-header {
+
+        ion-toolbar {
+            button {
+                label {
+                    color: #316d72 !important;
+                    font-size: 13px !important;
+                }
+
+                ion-icon.location-icon {
+                    position: relative;
+                }
+
+                ion-icon.location-icon:before {
+                    background-image: url('../assets/icon/location.png');
+                    content: '';
+                    background-size: 100% 100%;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                ion-icon.my-shop:before {
+                    background-image: url('../assets/icon/my-shop.png');
+                    content: '';
+                    background-size: 100% 100%;
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+
+    ion-content {
+        div.form-group {
+            margin: 20px 20px 0px 20px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            ion-col.logo-image {
+                img {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 10px;
+                }
+            }
+
+            ion-col.factory-info {
+                div.factory-name {
+                    padding-top: 7px;
+                    label {
+                        font-weight: bold;
+                        font-size: 16px;
+                        color: #316d72;
+                    }
+                }
+
+                div.factory-content {
+                    p {
+                        color: #acabab;
+                        margin: 5px 0px;
+                    }
+                }
+            }
+        }
+    }
+}

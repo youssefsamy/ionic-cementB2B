@@ -1,0 +1,63 @@
+page-pay-history {
+
+    ion-content.main-content {
+
+        background-color: white;
+
+        div.form-group {
+            label {
+                color: #316d72;
+                font-size: 16px;
+            }
+            margin-bottom: 10px;
+
+            label.balance {
+                color: #ff6e0d;
+                font-size: 20px;
+            }
+
+        }
+
+        form.form-horizontal {
+            padding-top: 12px;
+        }
+
+        form.bank-account {
+
+            > div.form-group {
+                margin-bottom: 0px;
+            }
+
+            > ion-list {
+                background-color: white;
+                margin: 0px 2px;
+                border: 1.4px solid #dfdfdf;
+                margin-bottom: 20px;
+
+                ion-item {
+
+                    ion-thumbnail {
+
+                        i:before {
+                            width: 30px;
+                            height: 30px;
+                            background-size: 100% 100%;
+                        }
+                    }
+
+                }
+
+                > ion-item:first-child {
+                    border-top: none!important;
+                }
+                > ion-item:last-child {
+                    border-bottom: none!important;
+                }
+
+                &.active {
+                    border: 1.4px solid #ff6e0d;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            首页
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div text-center class="logo">
+        <img src="assets/icon/logo.png" alt="Logo" />
+    </div>
+
+    <form class="form-stacked big">
+        <div class="form-group">
+            <label>用户名:</label>
+            <ion-input type="number" name="phone" [(ngModel)]="info.phone" (ionChange)="changePhone()"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>密码:</label>
+            <ion-input type="password" name="password" [(ngModel)]="info.password"></ion-input>
+        </div>
+
+        <div margin-top>
+            <button ion-button color="danger" class="btn-login" (click)="login()">登&nbsp;&nbsp;陆</button>
+
+            <div text-right float-right>
+                <a class="btn" (click)="goToRegister()">注册</a> <br/>
+                <a class="btn" (click)="goToForgetPassword()">忘记密码</a>
+            </div>
+        </div>
+    </form>
+
+<!--
+    <a (click)="goToRegisterFactory()">Register</a>
+    <a (click)="goToRegisterCustomer()">Customer</a>-->
+    <!--<a href="tel:+8615668832810">Call</a>-->
+    <!--<a (click)="stop()">start</a>-->
+</ion-content>

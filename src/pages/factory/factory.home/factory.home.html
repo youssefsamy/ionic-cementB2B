@@ -1,0 +1,129 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToSearchFactoryPage()">
+                <ion-icon class="location-icon"></ion-icon>
+                <label>{{city}}</label>
+            </button>
+        </ion-buttons>
+
+        <ion-title>我的企业</ion-title>
+
+        <ion-buttons end (click)="goToMessageHomePage()">
+            <button ion-button icon-only>
+                <ion-icon name='notifications'></ion-icon>
+            </button>
+            <i class="notify" *ngIf="settings.badge.notify == 1"></i>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <!--<ion-searchbar placeholder="请输入店铺名称" animated="true" autocomplete="on" showCancelButton="true"></ion-searchbar>-->
+
+    <div class="tab-bar">
+        <ion-row>
+            <ion-col col-4>
+                <ion-icon class="my-shop"></ion-icon>
+                <label>我的企业</label>
+            </ion-col>
+            <ion-col col-4 (click)="goToTrack()">
+                <ion-icon class="track"></ion-icon>
+                <label>追踪</label>
+            </ion-col>
+            <ion-col col-4 (click)="goToFactoryCenterHomePage()">
+                <ion-icon class="my-user"></ion-icon>
+                <label>我的</label>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div class="logo" (click)="goToFactoryDetailPage()">
+        <div class="logo-photo">
+            <img [src]="user.logo">
+        </div>
+        <div class="seperator"></div>
+        <div class="factory-name">
+            <h3>{{user.name}}</h3>
+        </div>
+    </div>
+
+    <ion-list class="my-order">
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-my-order"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>我的订单</label>
+            </div>
+        </ion-item>
+
+        <ion-row>
+            <ion-col col-3></ion-col>
+            <ion-col col-9>
+                <ion-list class="my-order-content">
+                    <ion-item (click)="goToOrderManagePage({tabIndex: 0})" [ngClass]="{notification: settings.badge.business_first > 0}">
+                        <ion-thumbnail class="thumb-42" item-start>
+                            <i class="custom-icon custom-icon-pending"></i>
+                        </ion-thumbnail>
+                        <button ion-item>待处理</button>
+                    </ion-item>
+
+                    <ion-item (click)="goToOrderManagePage({tabIndex: 1})" class="notification" [ngClass]="{notification: settings.badge.business_second > 0}">
+                        <ion-thumbnail class="thumb-42" item-start>
+                            <i class="custom-icon custom-icon-server-pending"></i>
+                        </ion-thumbnail>
+                        <button ion-item>待服务</button>
+                    </ion-item>
+
+                    <ion-item (click)="goToOrderManagePage({tabIndex: 2})" class="notification" [ngClass]="{notification: settings.badge.business_third > 0}">
+                        <ion-thumbnail class="thumb-42" item-start>
+                            <i class="custom-icon custom-icon-complete"></i>
+                        </ion-thumbnail>
+                        <button ion-item>已完成</button>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+
+    <ion-list>
+        <ion-item (click)="goToFundManagementHome()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-my-asset"></i>
+            </ion-thumbnail>
+            <button ion-item>我的资产<label item-end>{{balanceInfo.balance | number: '1.2-2'}}¥</label></button>
+        </ion-item>
+    </ion-list>
+
+    <ion-list class="my-order">
+        <ion-item (click)="goToFactoryCouponPage()">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-my-coupon"></i>
+            </ion-thumbnail>
+            <button ion-item>我发布的优惠券</button>
+        </ion-item>
+
+    </ion-list>
+
+    <div class="coupon" *ngFor="let coupon of coupons; let i = index" (click)="showImage(coupon)">
+        <div>
+            <label>限品类：</label>
+            <label>{{coupon.range}}</label>
+        </div>
+        <div>
+            <label>优惠券金额:</label>
+            <label>{{coupon.amount}}</label>
+        </div>
+        <div>
+            <label>满足条件:</label>
+            <label>{{coupon.condition}}</label>
+        </div>
+    </div>
+
+    <div class="empty-screen" *ngIf="coupons.length == 0">
+        <h3>暂时没有优惠券</h3>
+    </div>
+
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选择提示音
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <form>
+
+        <ion-list radio-group>
+
+            <ion-list-header>
+                <ion-label>提示音</ion-label>
+            </ion-list-header>
+
+            <ion-item *ngFor="let sound of sounds; let i =index" [class.selected]="sound.sId == selectedSound" [class.currentSound]="sound.sId == currentSound">
+
+                <ion-label (click)="selectSound(sound)">{{sound.name}}</ion-label>
+                <button ion-button item-end (click)="apply(sound)">应用</button>
+            </ion-item>
+
+        </ion-list>
+    </form>
+</ion-content>

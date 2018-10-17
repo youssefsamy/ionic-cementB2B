@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            输入汇款金额
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <p name="introduction">尊总的客户您好：<br>请输入汇款金额，我们会核对后确认。</p>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-yen"></i>
+            </button>
+            <label>金额：</label>
+            <ion-input text-end name="amount" [(ngModel)]="amount" type="number"></ion-input>
+            <label>元</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal bank-account" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-bank-account"></i>
+            </button>
+            <label>&nbsp;&nbsp;银行帐户信息：</label>
+        </div>
+
+        <ion-list *ngFor="let bank of banks; let i = index" [ngClass]="{active: i == selected_index}" (click)="select(i)">
+            <ion-item>
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-black-bank"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>{{bank.bank_name}}</label>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <i class="custom-icon custom-icon-black-user"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>{{bank.account_name}}</label>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <i class="custom-icon custom-icon-black-card"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>{{bank.card_no}}</label>
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </form>
+
+
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="pay()">确  认</button>
+    </div>
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            起草合同
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-form-group">
+        <div class="title">
+            <label>下载模板：</label>
+        </div>
+        <div class="group-content">
+            <label *ngFor="let template of templates; let i = index"  [class.active]="selected_template == template.fileurl">
+                <input type="radio" name="templateKind" [value]="template.fileurl" [(ngModel)]="selected_template"/>{{template.name}}
+            </label>
+
+        </div>
+
+    </div>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="downloadTemplate()">确  定</button>
+    </div>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="cancel()">取  消</button>
+    </div>
+</ion-content>

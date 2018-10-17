@@ -1,0 +1,78 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            公司帐户
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-company-name"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>公司名称</label>
+                <label item-end>{{userinfo.account_name}}</label>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-card-number"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>银行卡号</label>
+                <label item-end>{{userinfo.account_cardno}}</label>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item (click)="goToCardCertification()">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-affiliate-bank"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>所属银行</label>
+                <label item-end>{{userinfo.bank_name}}</label>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-bank-name"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>开户行名称</label>
+            </div>
+        </ion-item>
+        <div ion-item class="profile-content">
+            <ion-thumbnail class="thumb-42" item-start></ion-thumbnail>
+            <p item-start>{{userinfo.account_bank_name}}</p>
+        </div>
+    </ion-list>
+
+
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-area"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>地区</label>
+                <label item-end>{{userinfo.account_location}}</label>
+            </div>
+        </ion-item>
+    </ion-list>
+
+  <!--  <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login" (click)="goBack()">确&nbsp;&nbsp;&nbsp;&nbsp;认</button>
+    </div>-->
+
+</ion-content>

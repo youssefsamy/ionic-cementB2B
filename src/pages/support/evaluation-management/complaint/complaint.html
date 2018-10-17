@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            投诉
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="userRole == 'servicer'">
+        <div class="custom-card" *ngFor="let evaluation of evaluations; let i = index;">
+            <div class="card-header">
+                <label>
+                    昨天 17:09
+                </label>
+            </div>
+            <div class="card-content">
+
+                <div class="rate">
+
+                    <ion-row>
+                        <ion-col col-4>
+                            <label>客户评价：</label>
+                            <label class="rate-val">{{(evaluation.servicer_marks ? evaluation.servicer_marks : '0.00') |
+                                number: '1.2-2'}}</label>
+                        </ion-col>
+                        <ion-col col-8>
+                            <rating [(ngModel)]="evaluation.servicer_marks" readOnly="true"
+                                    max="5" emptyStarIconName="star-outline"
+                                    halfStarIconName="star-half" starIconName="star"
+                                    nullable="false"></rating>
+                        </ion-col>
+                    </ion-row>
+
+                </div>
+
+                <p>
+                    {{evaluation.servicer_content}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="userRole == 'business'">
+        <div class="custom-card" *ngFor="let evaluation of evaluations; let i = index;">
+            <div class="card-header">
+                <label>
+                    昨天 17:09
+                </label>
+            </div>
+            <div class="card-content">
+
+                <div class="rate">
+
+                    <ion-row>
+                        <ion-col col-4>
+                            <label>客户评价：</label>
+                            <label class="rate-val">{{(evaluation.business_marks ? evaluation.business_marks : '0.00') |
+                                number: '1.2-2'}}</label>
+                        </ion-col>
+                        <ion-col col-8>
+                            <rating [(ngModel)]="evaluation.business_marks" readOnly="true"
+                                    max="5" emptyStarIconName="star-outline"
+                                    halfStarIconName="star-half" starIconName="star"
+                                    nullable="false"></rating>
+                        </ion-col>
+                    </ion-row>
+
+                </div>
+
+                <p>
+                    {{evaluation.business_content}}
+                </p>
+                <div>
+                    <button ion-button color="danger" item-end>查看</button>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

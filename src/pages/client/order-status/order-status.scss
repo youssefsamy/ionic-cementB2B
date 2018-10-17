@@ -1,0 +1,140 @@
+page-order-status {
+
+    ion-navbar {
+        button {
+            ion-icon.new-coupon:before {
+                background-image: url('../assets/icon/new-coupon.png');
+                content: '';
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                margin-right: 3px;
+            }
+
+            ion-icon.my-shop:before {
+                background-image: url('../assets/icon/my-shop.png');
+                content: '';
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                margin-right: 3px;
+            }
+        }
+
+
+    }
+
+    ion-content {
+
+        padding: 0px 10px !important;
+
+        ion-segment {
+            margin-top: 20px !important;
+            overflow: visible !important;
+
+            ion-segment-button {
+                border: none !important;
+                overflow: visible !important;
+                ion-icon {
+                }
+
+                ion-icon:before {
+                    content: '';
+                    width: 40px;
+                    height: 40px;
+                    background-size: 100% 100%;
+                    vertical-align: middle;
+                }
+
+                ion-icon.mortar:before {
+                    background-image: url("../assets/icon/mortar-unactive.png") !important;
+                }
+
+                ion-icon.balance:before {
+                    background-image: url("../assets/icon/balance-unactive.png") !important;
+                }
+
+                ion-icon.all:before {
+                    background-image: url("../assets/icon/all-unactive.png") !important;
+                }
+
+                label {
+                    color: #939393;
+                    font-size: 14px !important;
+                }
+
+            }
+
+            ion-segment-button.segment-activated {
+                background-color: transparent !important;
+
+                label {
+                    color: #316d72;
+                }
+
+                ion-icon.mortar:before {
+                    background-image: url("../assets/icon/mortar-active.png") !important;
+                }
+
+                ion-icon.balance:before {
+                    background-image: url("../assets/icon/balance-active.png") !important;
+                }
+
+                ion-icon.all:before {
+                    background-image: url("../assets/icon/all-active1.png") !important;
+                }
+            }
+        }
+
+        button {
+            height: 29px !important;
+        }
+
+        button[color='light'] {
+            color: #939393 !important;
+            width: 100px;
+        }
+
+        div.custom-card {
+            .confirming {
+                ion-label {
+                    overflow: visible;
+
+                    label {
+                        border: 2px solid #e9e8e8;
+                        border-radius: 1px;
+                        font-size: 13px;
+                        padding: 4px 9px;
+                    }
+                }
+            }
+
+            .confirmed {
+                ion-label {
+                    overflow: visible;
+
+                    label {
+                        border: 2px solid #e9e8e8;
+                        background-color: #e9e8e8;
+                        border-radius: 1px;
+                        font-size: 13px;
+                        padding: 4px 9px;
+                    }
+                }
+            }
+        }
+    
+        button.button-call {
+        
+            padding-left: 2px !important;
+            padding-right: 2px !important;
+        
+            img {
+                width: 30px;
+            }
+        
+        }
+    }
+}
+
+

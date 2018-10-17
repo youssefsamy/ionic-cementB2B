@@ -1,0 +1,5 @@
+<ion-tabs tabsPlacement="top" #myTabs [selectedIndex]='tabIndex'>
+    <ion-tab [root]="pendingPage" tabTitle="待接收" tabIcon="down-icon" [tabBadge]="setting.badge.business_first" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="sendingPage" tabTitle="待发货" tabIcon="up-icon" [tabBadge]="setting.badge.business_second" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="completePage" tabTitle="已完成" tabIcon="complete-icon" [tabBadge]="setting.badge.business_third" tabBadgeStyle="danger"></ion-tab>
+</ion-tabs>

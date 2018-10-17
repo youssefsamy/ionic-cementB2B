@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            支付
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-balance1"></i>
+            </button>
+            <label>我的余额：</label>
+            <label item-end class="balance">{{balance}}</label>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-yen"></i>
+            </button>
+            <label>金额：</label>
+            <ion-input text-end name="amount" [(ngModel)]="amount" type="number"></ion-input>
+            <label>元</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top (click)="selectType('online')" [ngClass]="{active: selected_type == 'online'}">
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-online1"></i>
+            </button>
+            <label>余额支付</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top (click)="selectType('webchat')" [ngClass]="{active: selected_type == 'webchat'}">
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-micro-letter"></i>
+            </button>
+            <label>微信</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top (click)="selectType('alipay')" [ngClass]="{active: selected_type == 'alipay'}">
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-alipay"></i>
+            </button>
+            <label>支付宝</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top (click)="selectType('bank')" [ngClass]="{active: selected_type == 'bank'}">
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-yen"></i>
+            </button>
+            <label>银行</label>
+        </div>
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="pay()">确  认</button>
+    </div>
+
+
+</ion-content>

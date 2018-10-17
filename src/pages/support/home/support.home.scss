@@ -1,0 +1,104 @@
+page-support-home {
+    
+    
+    i.notify {
+        position: relative;
+        
+        &:before {
+            position: absolute;
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: red;
+            display: inline-block;
+            border-radius: 100%;
+            top: -30px;
+            right: -2px;
+        }
+    }
+    
+    ion-content {
+
+        padding: 0px 10px!important;
+
+        ion-segment {
+
+            margin-top:20px!important;
+            overflow: visible!important;
+
+            ion-segment-button {
+                background-size: 100% 100%;
+                border: none!important;
+                position: relative;
+                overflow: visible!important;
+                margin: 0px 2px!important;
+                border-radius: 5px!important;
+                padding-left: 15px;
+                padding-top: 2px;
+            }
+
+            ion-segment-button:first-child {
+                margin-left: 15px!important;
+            }
+
+            ion-segment-button:last-child {
+                margin-right: 15px!important;
+            }
+
+            .order {
+                background-image: url('../assets/icon/order-back1.png');
+            }
+
+            .order.segment-activated {
+                background-image: url('../assets/icon/order-back2.png')
+            }
+
+            .pending {
+                background-image: url('../assets/icon/pending-back1.png')
+            }
+
+            .pending.segment-activated {
+                background-image: url('../assets/icon/pending-back2.png')
+            }
+
+            .completed {
+                background-image: url('../assets/icon/completed-back1.png')
+            }
+
+            .completed.segment-activated {
+                background-image: url('../assets/icon/completed-back2.png')
+            }
+
+            ion-segment-button.segment-activated:before {
+
+                width: 1px;
+                height: 1px;
+                content: '';
+                bottom: -14px;
+                left: 45%;
+                border: 7px solid transparent;
+                border-top-color: #316d72;
+                position: absolute;
+            }
+
+            ion-segment-button.segment-activated {
+                background-color: white!important;
+            }
+            
+            .tab-badge {
+                top: -10%;
+                right: 0%;
+            }
+        }
+        button {
+            height: 29px!important;
+        }
+        
+        button[color='light'] {
+            color: #939393!important;
+            width: 100px;
+        }
+    }
+
+
+}

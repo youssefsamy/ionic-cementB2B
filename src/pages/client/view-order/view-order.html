@@ -1,0 +1,205 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            订单信息
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div [ngSwitch]="state">
+        <div *ngSwitchCase="'M'" style="padding: 0px 17px;">
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>类型：</label>
+                        <label item-end>混凝土订单</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>订单申请日期：</label>
+                        <label item-end>{{info.order_date}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>强度：</label>
+                        <label item-end>{{info.mortar_kind_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>骨料：</label>
+                        <label item-end>{{info.mortar_type_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>外加料：</label>
+                        <label item-end>{{info.mortar_rate_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>浇筑部位：</label>
+                        <label item-end>{{info.mortar_use_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>申请数量：</label>
+                        <label item-end>{{info.amount}}  吨</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>预期价格：</label>
+                        <label item-end>{{info.budget}}  元</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>联系电话：</label>
+                        <label item-end>{{info.contact_number}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>备注：</label>
+                    </div>
+                </ion-item>
+                <div ion-item class="profile-content">
+                    <ion-thumbnail class="thumb-42" item-start></ion-thumbnail>
+                    <p item-start>{{info.note}}</p>
+                </div>
+            </ion-list>
+        </div>
+
+        <div *ngSwitchCase="'B'" style="padding: 0px 17px;">
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>类型：</label>
+                        <label item-end>{{info.order_kind == 'I' ? '电子秤订单' : '电子秤维修订单'}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>订单申请日期：</label>
+                        <label item-end>{{info.order_date}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>型号</label>
+                        <label item-end>{{info.balance_kind_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>规格</label>
+                        <label item-end>{{info.balance_type_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>称重系统类型</label>
+                        <label item-end>{{info.balance_subtype_name}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>标准配置</label>
+                        <label item-end>{{info.balance_config}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>申请数量：</label>
+                        <label item-end>{{info.amount}}  吨</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>合同价格：</label>
+                        <label item-end>{{info.budget}}  元</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>联系电话：</label>
+                        <label item-end>{{info.contact_number}}</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <div ion-item>
+                        <label>备注：</label>
+                    </div>
+                </ion-item>
+                <div ion-item class="profile-content">
+                    <ion-thumbnail class="thumb-42" item-start></ion-thumbnail>
+                    <p item-start>{{info.note}}</p>
+                </div>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

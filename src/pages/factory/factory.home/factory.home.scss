@@ -1,0 +1,197 @@
+page-factory-home {
+    ion-header {
+
+        ion-toolbar {
+            button {
+                label {
+                    color: #316d72 !important;
+                    font-size: 13px !important;
+                }
+
+                ion-icon.location-icon {
+                    position: relative;
+                }
+
+                ion-icon.location-icon:before {
+                    background-image: url('../assets/icon/location.png');
+                    content: '';
+                    background-size: 100% 100%;
+                    width: 25px;
+                    height: 25px;
+                }
+
+            }
+            
+            i.notify {
+                position: relative;
+                
+                &:before {
+                    position: absolute;
+                    content: '';
+                    width: 6px;
+                    height: 6px;
+                    background-color: red;
+                    display: inline-block;
+                    border-radius: 100%;
+                    top: -30px;
+                    right: -2px;
+                }
+            }
+        }
+
+        button[color='light'] {
+            color: #939393 !important;
+            width: 100px;
+        }
+    }
+
+    ion-content {
+        div.tab-bar {
+
+            ion-col[col-4] {
+                text-align: center;
+
+                label {
+                    font-size: 11px;
+                }
+            }
+
+            ion-col[col-4]:first-child {
+                label {
+                    color: #548589;
+                }
+            }
+
+            background-color: #f7f7f7;
+            width: 100%;
+
+            ion-icon {
+                position: relative;
+                display: block;
+            }
+
+            ion-icon:before {
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                content: '';
+            }
+
+            ion-icon.my-shop:before {
+                background-image: url('../assets/icon/my-shop.png');
+            }
+
+            ion-icon.man:before {
+                background-image: url('../assets/icon/man.png');
+            }
+
+            ion-icon.track:before {
+                background-image: url('../assets/icon/track.png');
+            }
+
+            ion-icon.my-user:before {
+                background-image: url('../assets/icon/my-user.png');
+            }
+        }
+
+        div.logo {
+
+            border-top: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+            padding: 0px 30px;
+            background-color: white;
+            div.logo-photo {
+
+                padding: 20px 0px;
+                text-align: center;
+                img {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 10px !important;
+                }
+            }
+
+            div.seperator {
+                height: 1px;
+                background-color: #dfdfdf;
+            }
+
+            div.factory-name {
+                text-align: center;
+                h3 {
+                    color: #548589;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        ion-list.my-order {
+
+            border-bottom: 1px solid #dfdfdf;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            margin-top: 45px;
+            ion-list:first-child {
+                margin: 0px;
+            }
+
+            ion-list.my-order-content {
+                border: none;
+
+                ion-thumbnail {
+                    padding-right: 0px;
+                }
+
+                ion-item:first-child {
+                    border-top: none !important;
+                }
+
+                ion-item:last-child {
+                    border-bottom: none !important;
+                }
+
+                ion-item {
+                    padding: 0px 12px;
+                }
+
+                div[item-content] {
+
+                }
+                
+                .notification {
+                    &:before {
+                        content: "";
+                        width: 8px;
+                        height: 8px;
+                        background-color: red;
+                        border-radius: 100%;
+                        position: absolute;
+                        top: 2px;
+                        left: 44px;
+                    }
+                }
+            }
+        }
+
+        div.coupon {
+            margin: 5px 30px;
+            background-image: url('../assets/icon/coupon-background.png');
+            background-size: 100% 100%;
+            padding: 25px;
+
+            > div label {
+                font-size: 13px;
+                color: white;
+            }
+        }
+    }
+
+    div.coupon:nth-child(2) {
+        margin-top: 15px;
+    }
+
+}
+

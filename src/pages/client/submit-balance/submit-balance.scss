@@ -1,0 +1,62 @@
+page-submit-balance {
+    div.custom-form-group {
+        margin: 20px 20px 10px 20px;
+        padding: 15px 17px 15px 17px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+
+        div.group-content {
+
+            label {
+                color: #939393;
+            }
+
+            label.option {
+                color: #316d72;
+                background-color: white;
+                border: 1px solid #316d72;
+                padding: 3px 12px;
+                border-radius: 2px;
+                font-weight: bold;
+                margin: 2px 4px;
+                display: inline-block;
+
+                input[type=radio] {
+                    display: none;
+                }
+            }
+
+            label.active {
+                color: white;
+                background-color: #316d72;
+            }
+        }
+
+    }
+
+    form.form-horizontal {
+        padding: 15px 17px 15px 17px !important;
+        > div.form-group {
+            margin-bottom: 0px !important;
+        }
+    }
+
+    ion-textarea {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        color: #939393;
+        width: 100%;
+        height: 80px;
+        padding: 5px 13px 5px;
+    }
+
+    ion-select {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        color: #939393;
+        padding-left: 0.9em !important;
+        padding-right: 0.9em !important;
+    }
+}

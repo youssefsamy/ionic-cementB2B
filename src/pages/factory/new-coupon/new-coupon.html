@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            发布优惠劵
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+    <form>
+        <ion-list>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <i class="custom-icon custom-icon-coupon"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label item-start>优惠券封面图</label>
+                    <button ion-button icon-only item-start (click)="uploadphoto()" style="margin-left: 15px;">
+                        <i class="custom-icon custom-icon-plus"></i>
+                    </button>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <input class="form-control" type="file" style=" display:none; " name="file" id="uploadphoto"
+               class="form-control" (change)="fileChangeListener($event)">
+
+        <ion-list>
+            <ion-item class="download-input">
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-coupon-download"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label ion-content item-start>优惠券下载次数</label>
+                    <ion-item item-end>
+                        <ion-input item-end type="number" [(ngModel)]="info.download" name="download"></ion-input>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-coupon-use"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>优惠券使用范围</label>
+                </div>
+            </ion-item>
+            <div ion-item class="input-content">
+                <ion-input name="range" [(ngModel)]="info.range"></ion-input>
+            </div>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-coupon-amount"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>优惠券金额</label>
+                </div>
+            </ion-item>
+            <div ion-item class="input-content amount">
+                <ion-input type="number" name="amount" [(ngModel)]="info.amount"></ion-input>
+            </div>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-coupon-condition"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>满足条件</label>
+                </div>
+            </ion-item>
+            <div ion-item class="input-content">
+                <ion-input name="condition" [(ngModel)]="info.condition"></ion-input>
+            </div>
+        </ion-list>
+
+        <div class="button-wrapper">
+            <button ion-button color="danger" class="btn-login" (click)="publish()">发&nbsp;&nbsp;&nbsp;&nbsp;布</button>
+        </div>
+
+        <div class="button-wrapper">
+            <button ion-button color="danger" class="btn-login" (click)="cancel()">取&nbsp;&nbsp;&nbsp;&nbsp;消</button>
+        </div>
+    </form>
+</ion-content>

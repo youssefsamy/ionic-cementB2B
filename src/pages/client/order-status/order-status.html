@@ -1,0 +1,158 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            申请状态
+        </ion-title>
+
+        <ion-buttons end (click)="SelectOrderPage()">
+            <button ion-button icon-only>
+                <ion-icon class="new-coupon"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goToHomePage()">
+                <ion-icon class="my-shop"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-segment [(ngModel)]="state" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="mortar">
+            <ion-icon class="mortar"></ion-icon>
+            <label>混凝土</label>
+        </ion-segment-button>
+        <ion-segment-button value="balance" class="server-pending">
+            <ion-icon class="balance"></ion-icon>
+            <label>电子秤</label>
+        </ion-segment-button>
+        <ion-segment-button value="all" class="completed">
+            <ion-icon class="all"></ion-icon>
+            <label>全部</label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="state">
+        <div *ngSwitchCase="'mortar'">
+            <div class="custom-card" *ngFor="let mMortar of orderMortar; let i = index">
+                <div class="card-header">
+                    <label>申请号:</label>
+                    <label>{{mMortar.order_no}}</label>
+                    <label style="float: right; padding-right: 15px">{{mMortar.order_date}}</label>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3><label>产品名称：</label></ion-col>
+                            <ion-col col-9><label>{{mMortar.order_kind == 'MM' ? '混凝土' : (mMortar.order_kind == 'BI' ? '电子秤订单' : '电子秤维修订单')}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>备注：</label></ion-col>
+                            <ion-col col-9><label>{{mMortar.note}}</label></ion-col>
+                        </ion-row>
+
+                        <ion-row ion-item [ngClass]="{confirming: mMortar.status != 2, confirmed: mMortar.status == 2}">
+                            <label *ngIf="mMortar.status == 0">状态：正在确认</label>
+                            <label *ngIf="mMortar.status == 1">状态：拒绝</label>
+                            <label *ngIf="mMortar.status == 2">状态：同意</label>
+                            <button ion-button color="danger" item-end *ngIf="mMortar.status == 1 || (mMortar.status == 0 && mMortar.sub_status == 0)" (click)="deleteOrder(mMortar)">删除</button>
+                            <button ion-button color="danger" item-end *ngIf="mMortar.status != 2" (click)="showOrder(mMortar)">查看</button>
+                            <button ion-button color="danger" item-end  *ngIf="mMortar.status == 2" (click)="goToDraftContractPage(mMortar)">起草合同</button>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'balance'">
+            <div class="custom-card" *ngFor="let mBalance of orderBalance; let i = index">
+                <div class="card-header">
+                    <label>申请号:</label>
+                    <label>{{mBalance.order_no}}</label>
+                    <label style="float: right; padding-right: 15px">{{mBalance.order_date}}</label>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3><label>产品名称：</label></ion-col>
+                            <ion-col col-9><label>{{mBalance.order_kind == 'MM' ? '混凝土' : (mBalance.order_kind == 'BI' ? '电子秤订单' : '电子秤维修订单')}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>备注：</label></ion-col>
+                            <ion-col col-9><label>{{mBalance.note}}</label></ion-col>
+                        </ion-row>
+
+                        <ion-row ion-item [ngClass]="{confirming: mBalance.status != 2, confirmed: mBalance.status == 2}">
+                            <label *ngIf="mBalance.status == 1">状态：拒绝</label>
+                            <label *ngIf="mBalance.status == 0 && mBalance.sub_status == 0">状态：正在确认</label>
+                            <label *ngIf="mBalance.status == 0 && mBalance.sub_status == 2">状态：业务员正在服务</label>
+                            <label *ngIf="mBalance.status == 0 && mBalance.sub_status == 3">状态：繁忙的工人</label>
+                            <label *ngIf="mBalance.status == 2">状态：同意</label>
+                            <button ion-button color="danger" item-end *ngIf="mBalance.status == 1 || (mBalance.status == 0 && mBalance.sub_status == 0)" (click)="deleteOrder(mBalance)">删除</button>
+                            <button ion-button color="danger" item-end *ngIf="mBalance.status != 2" (click)="showOrder(mBalance)">查看</button>
+                            <button ion-button color="danger" item-end  *ngIf="mBalance.status == 2" (click)="goToDraftContractPage(mBalance)">起草合同</button>
+                            <button ion-button color="danger" item-end  *ngIf="mBalance.status == 0 && mBalance.sub_status == 3" class="button-call" (click)="callPerson(mBalance)">
+                                <img src="assets/icon/button-call.png"></button>
+                            <button ion-button color="danger" item-end  *ngIf="mBalance.status == 0 && mBalance.sub_status == 3" (click)="track(mBalance)">实时跟踪</button>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'all'">
+            <div class="custom-card" *ngFor="let mAll of orderAll; let i = index">
+                <div class="card-header">
+                    <label>申请号:</label>
+                    <label>{{mAll.order_no}}</label>
+                    <label style="float: right; padding-right: 15px">{{mAll.order_date}}</label>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="card-content">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3><label>产品名称：</label></ion-col>
+                            <ion-col col-9><label>{{mAll.order_kind == 'MM' ? '混凝土' : (mAll.order_kind == 'BI' ? '电子秤订单' : '电子秤维修订单')}}</label></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-3><label>备注：</label></ion-col>
+                            <ion-col col-9><label>{{mAll.note}}</label></ion-col>
+                        </ion-row>
+
+                        <ion-row *ngIf="mAll.order_kind == 'MM'" ion-item [ngClass]="{confirming: mAll.status != 2, confirmed: mAll.status == 2}">
+                            <label *ngIf="mAll.status == 0">状态：正在确认</label>
+                            <label *ngIf="mAll.status == 1">状态：拒绝</label>
+                            <label *ngIf="mAll.status == 2">状态：同意</label>
+                            <button ion-button color="danger" item-end *ngIf="mAll.status == 1 || (mAll.status == 0 && mAll.sub_status == 0)" (click)="deleteOrder(mAll)">删除</button>
+                            <button ion-button color="danger" item-end *ngIf="mAll.status != 2" (click)="showOrder(mAll)">查看</button>
+                            <button ion-button color="danger" item-end  *ngIf="mAll.status == 2" (click)="goToDraftContractPage(mAll)">起草合同</button>
+                        </ion-row>
+
+                        <ion-row *ngIf="mAll.order_kind != 'MM'" ion-item [ngClass]="{confirming: mAll.status != 2, confirmed: mAll.status == 2}">
+                            <label *ngIf="mAll.status == 1">状态：拒绝</label>
+                            <label *ngIf="mAll.status == 0 && mAll.sub_status == 0">状态：正在确认</label>
+                            <label *ngIf="mAll.status == 0 && mAll.sub_status == 2">状态：业务员正在服务</label>
+                            <label *ngIf="mAll.status == 0 && mAll.sub_status == 3">状态：繁忙的工人</label>
+                            <label *ngIf="mAll.status == 2">状态：同意</label>
+                            <button ion-button color="danger" item-end *ngIf="mAll.status == 1 || (mAll.status == 0 && mAll.sub_status == 0)" (click)="deleteOrder(mAll)">删除</button>
+                            <button ion-button color="danger" item-end  *ngIf="mAll.status == 0 && mAll.sub_status == 3" class="button-call" (click)="callPerson(mAll)">
+                                <img src="assets/icon/button-call.png"></button>
+                            <button ion-button color="danger" item-end  *ngIf="mAll.status == 0 && mAll.sub_status == 3" (click)="track(mAll)">实时跟踪</button>
+                            <button ion-button color="danger" item-end *ngIf="mAll.status != 2" (click)="showOrder(mAll)">查看</button>
+                            <button ion-button color="danger" item-end  *ngIf="mAll.status == 2" (click)="goToDraftContractPage(mBalance)">起草合同</button>
+
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+

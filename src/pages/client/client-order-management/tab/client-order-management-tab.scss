@@ -1,0 +1,17 @@
+page-client-order-management-tab {
+
+  .force-back-button .back-button {
+    display: inline-block;
+  }
+
+  ion-tabs {
+    div.tabbar {
+      padding: 4px 0px;
+      font-size: 13px;
+    }
+  }
+
+  .back-button {
+    display: inline-block!important;
+  }
+}

@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            申请资料
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [ngSwitch]="role">
+    <form class="form-horizontal" margin-top>
+
+        <div class="form-group">
+            <label>企业LOGO：</label>
+            <img src="assets/icon/factory-logo.png" class="factory-logo" (click)="uploadPhoto('logo')" *ngIf="info.logo == ''">
+            <img [src]="info.logo" class="photo-image" (click)="uploadPhoto('logo')" *ngIf="info.logo != ''">
+        </div>
+
+        <div class="form-group">
+            <label>企业名称：</label>
+            <ion-input type="text" name="name" [(ngModel)]="info.name"></ion-input>
+        </div>
+
+
+        <div class="form-group">
+            <label>{{role == 'mortar' ? '生产地址：' : '所在地址'}}</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress({charNum: 1})"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="address" [ngModel]="info.address" readonly="true"></ion-textarea>
+        </div>
+
+        <!-- scales factory -->
+        <ng-container>
+
+            <div class="form-group">
+                <label>服务电话：</label>
+                <ion-input type="number" name="servicenumber" [(ngModel)]="info.service_number"></ion-input>
+            </div>
+
+            <div class="form-group">
+                <label>营业执照：</label>
+                <button ion-button icon-only (click)="uploadPhoto('business_license')" *ngIf="info.business_license == ''">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+                <img class="business_license" [src]="info.business_license" *ngIf="info.business_license != ''" (click)="uploadPhoto('business_license')">
+            </div>
+
+            <div class="form-group">
+                <label>申请人姓名：</label>
+                <ion-input type="text" name="applicant_name" [(ngModel)]="info.applicant_name"></ion-input>
+            </div>
+
+            <div class="form-group">
+                <label>身份证：</label>
+
+                <label style="margin-left: 10px">正面</label>
+                <button ion-button icon-only (click)="uploadPhoto('front')">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+
+                <label style="margin-left: 20px">反面</label>
+                <button ion-button icon-only (click)="uploadPhoto('back')">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+
+            </div>
+
+            <div class="form-group" *ngIf="info.idcard_front != '' || info.idcard_back != ''" style="text-align: center">
+                <img class="idcard" [src]="info.idcard_front" *ngIf="info.idcard_front != ''" (click)="showImage(info.idcard_front)">
+                <img class="idcard" [src]="info.idcard_back" *ngIf="info.idcard_back != ''" (click)="showImage(info.idcard_back)">
+            </div>
+
+            <div class="form-group">
+                <label>身份证号码：</label>
+                <ion-input type="text" name="idcard_number" [(ngModel)]="info.idcard_number"></ion-input>
+            </div>
+
+            <div class="form-group">
+                <label>联系电话：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <ion-input type="number" name="contact_number"  [(ngModel)]="info.contact_number"></ion-input>
+            </div>
+
+            <label style="margin-bottom: 7px; display: inline-block;">简介：</label>
+            <div class="form-group">
+                <ion-textarea name="introduction" [(ngModel)]="info.introduction"></ion-textarea>
+            </div>
+
+        </ng-container>
+    </form>
+
+    <div text-center>
+        <button ion-button color="danger" class="middle" (click)="register()">下一步</button>
+    </div>
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            实时轨迹
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <baidu-map [ak]="mapApi" [options]="opts" [offline]="offlineOpts" (onMapLoaded)="loadMap($event)" (onMarkerClicked)="clickMarker($event)" (onClicked)="clickmap($event)" ></baidu-map>
+</ion-content>

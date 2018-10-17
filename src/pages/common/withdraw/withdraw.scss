@@ -1,0 +1,83 @@
+page-withdraw {
+
+    .custom-icon:before {
+        display: inline-block;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+    }
+
+    label {
+        color: #316d72;
+        font-size: 14px !important;
+    }
+
+    ion-input {
+
+        border: 1px solid green;
+        height: 30px;
+        padding: 2px 5px;
+        text-align: right;
+        border-radius: 2px;
+
+        &.unConfirmed {
+            border-color: #ff6e0d;
+        }
+
+        input {
+            margin: 3px !important;
+            text-align: right;
+        }
+    }
+
+    ion-list:first-child {
+        margin-top: 45px;
+    }
+
+    div.button-wrapper {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            padding: 0px 50px;
+        }
+
+        &:last-child {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+    }
+
+    ion-item {
+
+        ion-select {
+            border: 1px solid green;
+            max-width: 100%;
+            padding: 2px 5px!important;
+            width: 100%;
+            height: 30px;
+            text-align: right;
+            line-height: 26px;
+        }
+
+
+        &.balance {
+            div {
+                overflow: visible !important;
+            }
+            ion-item {
+                ion-input {
+                    position: relative;
+
+                    &:before {
+                        position: absolute;
+                        content: '元';
+                        right: -18px;
+                        top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

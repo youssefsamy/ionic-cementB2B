@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+
+        <!--<ion-buttons start>
+            <button ion-button icon-only>
+                <ion-icon class="location-icon"></ion-icon>
+                <label>丹东</label>
+            </button>
+        </ion-buttons>-->
+
+        <ion-title>{{searchKey ? searchKey : '企业列表' }}</ion-title>
+
+        <!--<ion-buttons end>
+            <button ion-button icon-only (click)="goToHomePage()">
+                <ion-icon class="my-shop"></ion-icon>
+            </button>
+        </ion-buttons>-->
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngFor='let business of businesses; let i = index' class="form-group" (click)="goToFactoryDetailPage(i)">
+        <ion-row>
+            <ion-col col-3 class="logo-image">
+                <img [src]="business.logo">
+            </ion-col>
+
+            <ion-col col-9 class="factory-info">
+                <div class="factory-name">
+                    <label>{{business.name}}</label>
+                </div>
+                <div class="factory-content">
+                    <p>{{business.introduction}}</p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+
+</ion-content>

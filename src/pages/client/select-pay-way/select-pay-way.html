@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选择支付方式
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="goToOnlinePayPage()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-online"></i>
+            </ion-thumbnail>
+            <div>
+                在线支付
+            </div>
+        </ion-item>
+
+        <ion-item (click)="goToOfflinePayPage()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-offline"></i>
+            </ion-thumbnail>
+            <div>
+                线下支付
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

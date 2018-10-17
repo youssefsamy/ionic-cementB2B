@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button class="back-button" (click)="goBack()">
+                <ion-icon></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            订单管理
+        </ion-title>
+
+        <!--<ion-buttons end>
+            <button ion-button icon-only (click)="goToHomePage()">
+                <ion-icon class="my-shop"></ion-icon>
+            </button>
+        </ion-buttons>-->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="custom-card" *ngFor="let mOrder of orders; let i = index" >
+        <div *ngIf="mOrder.sub_status == 1 || mOrder.sub_status == 2 || mOrder.sub_status == 3">
+            <div class="card-header">
+                <label>订单号：</label>
+                <label>{{mOrder.order_no}}</label>
+            </div>
+            <div class="card-content">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-3><label>发货数量：</label></ion-col>
+                        <ion-col col-9><label>{{mOrder.delivery_amount}}</label></ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-3><label>发货日期:</label></ion-col>
+                        <ion-col col-9><label>{{mOrder.delivery_date}}</label></ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col col-3><label>发货地址:</label></ion-col>
+                        <ion-col col-9><label>{{mOrder.address}}</label></ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col col-3><label>货款金额:</label></ion-col>
+                        <ion-col col-9><label>{{mOrder.business_budget}}</label></ion-col>
+                    </ion-row>
+
+                    <ion-row ion-item [ngClass]="{confirmed: mOrder.sub_status != 1, confirming: mOrder.sub_status == 1}">
+                        <label *ngIf="mOrder.sub_status == 1">状态：等待中</label>
+                        <label *ngIf="mOrder.sub_status == 2">状态：拒绝</label>
+                        <label *ngIf="mOrder.sub_status == 3">状态：同意</label>
+                        <button ion-button color="danger" item-end *ngIf="mOrder.sub_status == 1" (click)="accept(i)">同意</button>
+                        <button ion-button color="danger" item-end *ngIf="mOrder.sub_status == 1" (click)="refuse(i)">拒绝</button>
+                        <button ion-button color="danger" item-end (click)="viewOrder(mOrder)">查看</button>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+    </div>
+</ion-content>

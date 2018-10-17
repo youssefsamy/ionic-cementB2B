@@ -1,0 +1,33 @@
+page-message-detail-info {
+
+    div.custom-card {
+
+        div.card-content {
+            border: 1px solid #dddddd;
+            border-top: none;
+
+            p.message-content {
+                background-color: white;
+                height: 250px;
+                border: 1px solid #dddddd;
+                padding: 5px 13px 5px;
+            }
+        }
+    }
+
+    div.button-wrapper {
+
+        text-align: center;
+
+        button {
+            width: 120px;
+            margin: 0px 5px;
+
+            &.disable {
+                background-color: #dddddd;
+                color: #acabab;
+            }
+        }
+    }
+
+}

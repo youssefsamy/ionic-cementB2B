@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            个人中心
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+        <div class="personal-logo-header" (click)="goToUserInfo()">
+            <div class="person-logo">
+                <img [src]="info.logo" alt="Logo"/>
+            </div>
+            <div>
+                <h2 class="name">
+                    <label>企业名称：</label>
+                    <label>{{info.name}}</label>
+                </h2>
+                <h3 class="address">
+                    <label>地址:</label>
+                    <label>{{info.address}}</label>
+                </h3>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+
+            <ion-list>
+
+                <ion-item (click)="goToCouponPage()">
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-coupon"></i>
+                    </ion-thumbnail>
+                    <button ion-item>优惠券设置</button>
+                </ion-item>
+
+                <ion-item (click)="goToFundManagementHome()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-fund"></i>
+                    </ion-thumbnail>
+                    <button ion-item>资金管理</button>
+                </ion-item>
+
+                <ion-item (click)="goToDataAnalyticsPage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-data"></i>
+                    </ion-thumbnail>
+                    <button ion-item>数据统计</button>
+                </ion-item>
+
+                <ion-item (click)="goToEvaluationPage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-evaluation1"></i>
+                    </ion-thumbnail>
+                    <button ion-item>评价管理</button>
+                </ion-item>
+
+                <ion-item (click)="goToAdvertisePage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-advertise"></i>
+                    </ion-thumbnail>
+                    <button ion-item>招聘广告</button>
+                </ion-item>
+
+                <ion-item (click)="goToSettingPage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-setting"></i>
+                    </ion-thumbnail>
+                    <button ion-item>系统设置</button>
+                </ion-item>
+                <ion-item (click)="goToAboutUsPage()">
+                    <ion-thumbnail item-start>
+                        <i class="custom-icon custom-icon-aboutus"></i>
+                    </ion-thumbnail>
+                    <button ion-item>关于我们</button>
+                </ion-item>
+            </ion-list>
+
+            <div class="button_wrapper">
+                <button ion-button color="danger" class="btn-login" (click)="logout()">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</button>
+                <button ion-button color="danger" class="" (click)="delete()" *ngIf="isCloseAvailabe == true">注销</button>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</ion-content>

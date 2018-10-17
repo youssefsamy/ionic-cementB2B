@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选择角色
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="selectCustomer()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-note"></i>
+            </ion-thumbnail>
+            <div>
+                我要订货
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectSupport()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-user-group"></i>
+            </ion-thumbnail>
+            <div>
+                我要加盟
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

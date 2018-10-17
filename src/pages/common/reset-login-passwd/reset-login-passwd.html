@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            修改登录密码
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+    <ion-list>
+        <ion-item class="download-input">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-key"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>请输入旧密码</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="currentpassword"
+                               [(ngModel)]="info.current_password" text-left></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+        <ion-item class="download-input">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-key1"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>请输入新密码</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="newpassword" [(ngModel)]="info.new_password"
+                               [ngClass]="{unConfirmed: confirmed == false}" (ionChange)="confirm()" text-left></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+
+        <ion-item class="download-input">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>确认新密码&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="confirmpassword" [(ngModel)]="info.confirm_password"
+                               [ngClass]="{unConfirmed: confirmed == false}" (ionChange)="confirm()" text-left></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login" (click)="submitPassword()">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+    </div>
+
+    <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login" (click)="cancel()">取&nbsp;&nbsp;&nbsp;&nbsp;消</button>
+    </div>
+</ion-content>

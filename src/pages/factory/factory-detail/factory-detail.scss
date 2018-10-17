@@ -1,0 +1,110 @@
+page-factory-detail {
+    ion-header {
+        ion-icon[name='pin'] {
+            padding-right: 10px !important;
+        }
+    }
+    ion-content {
+        div.detail-logo {
+            margin: 20px 0px;
+            text-align: center;
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 20px !important;
+            }
+        }
+
+        div.form-group {
+            background-color: #f7f7f7;
+            color: #7a7a7a;
+            margin: 17px 17px 0px 17px;
+            padding: 13px;
+        }
+
+        div.rate {
+            ion-col {
+                padding-right: 0px;
+            }
+            padding: 9px 13px;
+            label.rate-val {
+                background-color: #7a7a7a;
+                color: white;
+                margin-top: 5px;
+                padding: 0px 17px;
+                border-radius: 2px;
+                display: inline-block;
+            }
+            ul {
+                padding: 0px;
+                margin: 0px;
+                display: inline-block;
+
+                &.rating li {
+                    padding: 3px 5px !important;
+                    background: none;
+                    color: #ffb400;
+
+                    ion-icon {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+        }
+
+        div.introduction, div.location, div.service-line {
+            label {
+                display: block;
+            }
+            p {
+                overflow: scroll;
+                width: 100%;
+                background-color: white;
+                border-radius: 4px;
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
+
+        div.introduction {
+            p {
+                height: 130px;
+            }
+        }
+
+        div.service-line {
+            p {
+                margin: 0px;
+            }
+
+            label {
+                line-height: 35px;
+            }
+        }
+
+        div.coupon {
+            margin: 5px 20px;
+            background-image: url('../assets/icon/coupon-background.png');
+            background-size: 100% 100%;
+            padding: 25px;
+
+            > div label {
+                font-size: 13px;
+                color: white;
+            }
+        }
+
+        div.empty-screen {
+
+            height:50px;
+            margin-top: 20px;
+
+            h3 {
+                color: #b8b8b8;
+                text-align: center;
+            }
+
+        }
+    }
+}

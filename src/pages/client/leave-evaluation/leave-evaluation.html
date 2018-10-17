@@ -1,0 +1,154 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            评价
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div *ngIf="businesser_evaluation == false">
+
+        <div class="custom-form-group" *ngIf="order_kind != 'BR'">
+            <div class="title">
+                <label>服务态度：</label>
+            </div>
+            <div class="group-content">
+                <label class="option" [ngClass]="{active: business_mark == 5}"><input type="radio" name="mark1"
+                                                                                      style="display: none" value="5"
+                                                                                      [(ngModel)]="business_mark"/>5分</label>
+                <label class="option" [ngClass]="{active: business_mark == 4}"><input type="radio" name="mark1"
+                                                                                      style="display: none" value="4"
+                                                                                      [(ngModel)]="business_mark"/>4分</label>
+                <label class="option" [ngClass]="{active: business_mark == 3}"><input type="radio" name="mark1"
+                                                                                      style="display: none" value="3"
+                                                                                      [(ngModel)]="business_mark"/>3分</label>
+                <label class="option" [ngClass]="{active: business_mark == 2}"><input type="radio" name="mark1"
+                                                                                      style="display: none" value="2"
+                                                                                      [(ngModel)]="business_mark"/>2分</label>
+                <label class="option" [ngClass]="{active: business_mark == 1}"><input type="radio" name="mark1"
+                                                                                      style="display: none" value="1"
+                                                                                      [(ngModel)]="business_mark"/>1分</label>
+            </div>
+        </div>
+
+        <form class="form-horizontal" margin-top *ngIf="order_kind != 'BR'">
+            <label style="margin-bottom: 7px; display: inline-block;">留言：</label><br>
+            <i class="custom-icon custom-icon-image-upload" (click)="uploadbusinessImage()"></i>
+            <!--<ion-icon name="ios-image" class="image-icon" (click)="uploadbusinessImage()"></ion-icon>-->
+            <input class="form-control" type="file" style=" display:none; " name="file" id="uploadbusinessimg"
+                   class="form-control" (change)="fileChangeListener($event, 'businessimg')">
+            <div class="form-group">
+                <ion-textarea name="msg1" [(ngModel)]="business_msg" name="msg1"></ion-textarea>
+            </div>
+            <div class="image-group" *ngIf="business_images.length != 0">
+                <img *ngFor="let url of business_images; let i = index" [src]="url" (click)="showImage(url)">
+            </div>
+        </form>
+
+        <div class="custom-form-group">
+            <div class="title">
+                <label>企业评价：</label>
+            </div>
+            <div class="group-content">
+                <label class="option" [ngClass]="{active: servicer_mark == 5}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="5"
+                                                                                      [(ngModel)]="servicer_mark"/>5分</label>
+                <label class="option" [ngClass]="{active: servicer_mark == 4}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="4"
+                                                                                      [(ngModel)]="servicer_mark"/>4分</label>
+                <label class="option" [ngClass]="{active: servicer_mark == 3}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="3"
+                                                                                      [(ngModel)]="servicer_mark"/>3分</label>
+                <label class="option" [ngClass]="{active: servicer_mark == 2}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="2"
+                                                                                      [(ngModel)]="servicer_mark"/>2分</label>
+                <label class="option" [ngClass]="{active: servicer_mark == 1}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="1"
+                                                                                      [(ngModel)]="servicer_mark"/>1分</label>
+            </div>
+        </div>
+
+        <form class="form-horizontal" margin-top>
+            <label style="margin-bottom: 7px; display: inline-block;">留言：</label><br>
+            <i class="custom-icon custom-icon-image-upload" (click)="uploadservicerImage()"></i>
+            <!--<ion-icon name="ios-image" class="image-icon" (click)="uploadservicerImage()"></ion-icon>-->
+            <input class="form-control" type="file" style=" display:none; " name="file" id="uploadservicerimg"
+                   class="form-control" (change)="fileChangeListener($event, 'servicerimg')">
+            <div class="form-group">
+                <ion-textarea name="msg2" [(ngModel)]="servicer_msg"></ion-textarea>
+            </div>
+
+            <div class="image-group" *ngIf="servicer_images.length != 0">
+                <img *ngFor="let url of servicer_images; let i = index" [src]="url" (click)="showImage(url)">
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <div *ngIf="businesser_evaluation">
+        <div class="custom-form-group">
+            <div class="title">
+                <label>企业评价：</label>
+            </div>
+            <div class="group-content">
+                <label class="option" [ngClass]="{active: businesser_mark == 5}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="5"
+                                                                                      [(ngModel)]="businesser_mark"/>5分</label>
+                <label class="option" [ngClass]="{active: businesser_mark == 4}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="4"
+                                                                                      [(ngModel)]="businesser_mark"/>4分</label>
+                <label class="option" [ngClass]="{active: businesser_mark == 3}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="3"
+                                                                                      [(ngModel)]="businesser_mark"/>3分</label>
+                <label class="option" [ngClass]="{active: businesser_mark == 2}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="2"
+                                                                                      [(ngModel)]="businesser_mark"/>2分</label>
+                <label class="option" [ngClass]="{active: businesser_mark == 1}"><input type="radio" name="mark2"
+                                                                                      style="display: none" value="1"
+                                                                                      [(ngModel)]="businesser_mark"/>1分</label>
+            </div>
+        </div>
+
+        <form class="form-horizontal" margin-top>
+            <label style="margin-bottom: 7px; display: inline-block;">留言：</label><br>
+            <i class="custom-icon custom-icon-image-upload" (click)="uploadbusinesserImage()"></i>
+           <!-- <ion-icon name="ios-image" class="image-icon" (click)="uploadbusinesserImage()"></ion-icon>-->
+            <input class="form-control" type="file" style=" display:none; " name="file" id="uploadbusinesserimg"
+                   class="form-control" (change)="fileChangeListener($event, 'businesserimg')">
+            <div class="form-group">
+                <ion-textarea name="msg2" [(ngModel)]="businesser_msg"></ion-textarea>
+            </div>
+
+            <div class="image-group" *ngIf="businesser_images.length != 0">
+                <img *ngFor="let url of businesser_images; let i = index" [src]="url" (click)="showImage(url)">
+            </div>
+        </form>
+
+    </div>
+
+    <!--
+-->
+
+    <!-- <form class="form-horizontal" margin-top>
+         <div class="form-group">
+             <label>晒图（可选）：</label>
+             <button ion-button icon-only>
+                 <i class="custom-icon custom-icon-plus"></i>
+             </button>
+         </div>
+     </form>-->
+
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="evaluate()">确 认</button>
+    </div>
+
+    <div text-center style="margin-top: 10px">
+        <button ion-button color="danger" class="middle" (click)="skip()">skip</button>
+    </div>
+
+</ion-content>

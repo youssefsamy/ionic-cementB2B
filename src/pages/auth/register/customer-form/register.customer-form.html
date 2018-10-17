@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            个人信息
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <form class="form-horizontal" margin-top>
+
+        <div class="form-group">
+            <label>头像：</label>
+            <img src="assets/icon/factory-logo.png" class="factory-logo" (click)="uploadPhoto('photo')" *ngIf="info.photo == ''">
+            <img [src]="info.photo" class="photo-image" (click)="uploadPhoto('photo')" *ngIf="info.photo != ''">
+        </div>
+
+        <div class="form-group">
+            <label>用户昵称：</label>
+            <ion-input type="text" name="alias" [(ngModel)]="info.alias"></ion-input>
+        </div>
+
+
+        <div class="form-group">
+            <label>姓名：</label>
+            <ion-input type="text" name="name" [(ngModel)]="info.name"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>生日：</label>
+            <ion-input type="text" name="contact_no" text-end [(ngModel)]="info.birthday" readonly></ion-input>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-date-time" (click)="triggerDatePicker()"></i>
+            </button>
+            <ion-item style="display: none">
+                <ion-datetime [monthShortNames]="monthnames" doneText="确 定" cancelText="取 消" displayFormat="YYYY MMM DD" id="date_time" [(ngModel)]="info.birthday" name="date"></ion-datetime>
+            </ion-item>
+        </div>
+
+        <div class="form-group">
+            <label>收货地址：</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress({charNum: 1})"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="address" [(ngModel)]="info.address" readonly="true"></ion-textarea>
+        </div>
+
+        <div class="form-group">
+            <label>身份证：</label>
+            <label>正面</label>
+            <button ion-button icon-only (click)="uploadPhoto('front')">
+                <i class="custom-icon custom-icon-plus"></i>
+            </button>
+
+            <label>反面</label>
+            <button ion-button icon-only (click)="uploadPhoto('back')">
+                <i class="custom-icon custom-icon-plus"></i>
+            </button>
+        </div>
+
+        <div class="form-group" *ngIf="info.idcard_front != '' || info.idcard_back != ''" style="text-align: center">
+            <img class="idcard" [src]="info.idcard_front" *ngIf="info.idcard_front != ''" (click)="showImage(info.idcard_front)">
+            <img class="idcard" [src]="info.idcard_back" *ngIf="info.idcard_back != ''" (click)="showImage(info.idcard_back)">
+        </div>
+
+        <div class="form-group">
+            <label>身份证号码：</label>
+            <ion-input type="text" name="cardnumber" [(ngModel)]="info.idcard_number"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>联系电话：</label>
+            <ion-input type="number" name="contactnumber"[(ngModel)]="info.contact_number"></ion-input>
+        </div>
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="register()">下一步</button>
+    </div>
+</ion-content>

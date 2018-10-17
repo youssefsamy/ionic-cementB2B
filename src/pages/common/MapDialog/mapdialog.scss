@@ -1,0 +1,25 @@
+page-map-dialog {
+    baidu-map {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    div.location {
+        position: absolute;
+        z-index: 1200;
+        width: 100%;
+        background-color: #b8b8b8;
+
+        label {
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            color: red;
+            padding-top: 10px;
+            padding-left: 20px;
+            display: inline-block;
+            font-weight: bold;
+        }
+    }
+}

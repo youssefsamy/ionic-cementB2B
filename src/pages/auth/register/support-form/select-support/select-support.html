@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选项卡
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="selectSupport({role: 'driver'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-handle"></i>
+            </ion-thumbnail>
+            <div>
+                司机
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectSupport({role: 'installer'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-package"></i>
+            </ion-thumbnail>
+            <div>
+                安装人员
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectSupport({role: 'repairer'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-spanner"></i>
+            </ion-thumbnail>
+            <div>
+                维修人员
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectSupport({role: 'businesser'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-bag"></i>
+            </ion-thumbnail>
+            <div>
+                业务人员
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectFactory({role: 'mortar'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-truck"></i>
+            </ion-thumbnail>
+            <div>
+                搅拌站
+            </div>
+        </ion-item>
+
+        <ion-item (click)="selectFactory({role: 'balance'})">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-balance"></i>
+            </ion-thumbnail>
+            <div>
+                电子秤
+            </div>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

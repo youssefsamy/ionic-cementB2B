@@ -1,0 +1,41 @@
+<ion-header>
+
+    <ion-navbar>
+
+        <ion-title>我的优惠券</ion-title>
+
+        <ion-buttons end (click)="newCoupon()" *ngIf="role == 'mine'">
+            <button ion-button icon-only>
+                <ion-icon class="new-coupon"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="main-content">
+
+    <ion-list class="my-order">
+
+        <div class="coupon" *ngFor="let coupon of coupons; let i = index" (click)="showImage(coupon)">
+            <div>
+                <label>限品类：</label>
+                <label>{{coupon.range}}</label>
+            </div>
+            <div>
+                <label>优惠券金额:</label>
+                <label>{{coupon.amount}}</label>
+            </div>
+            <div>
+                <label>满足条件:</label>
+                <label>{{coupon.condition}}</label>
+            </div>
+        </div>
+
+    </ion-list>
+
+    <div class="empty-screen" *ngIf="coupons.length == 0">
+        <h3>暂时没有优惠券</h3>
+    </div>
+
+</ion-content>

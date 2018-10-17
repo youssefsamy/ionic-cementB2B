@@ -1,0 +1,40 @@
+page-call-modal {
+    .modal-content {
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        div.wrapper {
+            width: 260px;
+            background-color: white;
+            margin: auto;
+            margin-top: 150px;
+            div.title {
+                padding: 30px 30px;
+                text-align: center;
+                img {
+                    width: 40px;
+                    height: 40px;
+                    vertical-align: middle;
+                }
+                label {
+                    font-size: 16px;
+                    color: #626262;
+                    padding-left: 10px;
+                }
+            }
+            div.button-wrapper {
+                a {
+                    display: inline-block;
+                    background-color: #ff6600;
+                    padding: 11px 30px;
+                    font-size: 14px;
+                    color: white;
+                    width: 49%;
+                    text-align: center;
+                }
+                a:nth-child(2) {
+                    float: right;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{title}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [ngSwitch]="bank_type">
+    <form class="form-horizontal" margin-top>
+
+        <div class="form-group">
+            <label>姓名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="text" name="name" [(ngModel)]="info.account_name"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>银行卡号：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="text" name="card_number" [(ngModel)]="info.account_cardno"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>所属银行：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="text" name="bank_name" [(ngModel)]="info.bank_name"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>开户行名称：</label>
+            <ion-input type="text" name="account_bank_name" [(ngModel)]="info.account_bank_name"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>地区：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="text" name="location" [(ngModel)]="info.account_location"></ion-input>
+        </div>
+    </form>
+
+    <div text-center>
+        <button ion-button color="danger" class="middle" (click)="EditBank()">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</button>
+    </div>
+
+    <!--<div text-center>
+        <button ion-button color="danger" class="middle" (click)="EditBank()">稍后填入</button>
+    </div>-->
+</ion-content>

@@ -1,0 +1,69 @@
+page-pay-success {
+
+    .personal-logo-header {
+        text-align: center;
+        color: #316d72;
+        background-color: #f7f7f7;
+        padding-bottom: 30px;
+        .person-logo {
+            text-align: center;
+            padding-top: 35px;
+            margin-bottom: 15px;
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 20px !important;
+            }
+
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 0;
+            font-weight: bold;
+        }
+    }
+
+    .main-wrapper {
+        background-color: white;
+        padding: 0px 40px;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+
+        > div {
+            text-align: center;
+
+            label {
+                font-size: 15px;
+                color: #acabab;
+            }
+            &:first-child {
+                border-bottom: 1px solid #dddddd;
+            }
+
+            label.contact-no {
+                color: #ff6600;
+                font-size: 16px;
+                padding-right: 5px;
+            }
+
+            label.text-dark {
+                font-size: 17px;
+            }
+        }
+    }
+
+    div.button-wrapper {
+
+        text-align: center;
+
+        button {
+            width: 200px;
+            text-align: center;
+        }
+
+        &:nth-child(2) {
+            margin-top: 15px;
+        }
+    }
+
+}

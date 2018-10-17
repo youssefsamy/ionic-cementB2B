@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button class="back-button" (click)="goBack()">
+                <ion-icon></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            处理详情
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="custom-card" *ngFor="let mOrder of receiveOrders; let i = index">
+
+        <div class="card-header">
+            <label>订单号：</label>
+            <label>{{mOrder.order_no}}</label>
+            <label style="float: right; padding-right: 15px">{{mOrder.approval_date}}</label>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="card-content">
+            <ion-grid>
+                <ion-row *ngIf="mOrder.status == 3">
+                    <ion-col col-3><label>合同标号：</label></ion-col>
+                    <ion-col col-9><label>{{mOrder.contract_no}}</label></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3><label>产品名称：</label></ion-col>
+                    <ion-col col-9><label>{{mOrder.order_kind == 'M' ? '混凝土' : '电子秤订单'}}</label></ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-3><label>发货数量：</label></ion-col>
+                    <ion-col col-9><label>{{mOrder.delivery_amount}}</label></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3><label>发货日期：</label></ion-col>
+                    <ion-col col-9><label>{{mOrder.delivery_date}}</label></ion-col>
+                </ion-row>
+
+                <ion-row ion-item  [ngClass]="{confirming: mOrder.sub_status == 0, confirmed: mOrder.sub_status == 1}">
+                    <label *ngIf="mOrder.sub_status == 0">状态：待服务</label>
+                    <label *ngIf="mOrder.sub_status == 1">状态：正在服务</label>
+                    <button ion-button color="danger" item-end  *ngIf="mOrder.sub_status == 1" class="button-call" (click)="callPerson(mOrder)">
+                        <img src="assets/icon/button-call.png"></button>
+                    <button ion-button color="danger" item-end  *ngIf="mOrder.sub_status == 1" (click)="track(mOrder)">实时跟踪</button>
+                    <button ion-button color="danger" item-end (click)="showOrder(mOrder)">查看</button>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </div>
+
+    <div class="empty-screen" *ngIf="receiveOrders.length == 0">
+        <h3>{{result}}</h3>
+    </div>
+
+</ion-content>

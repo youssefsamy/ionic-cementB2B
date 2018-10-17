@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            发货请求
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-form-group">
+        <div class="group-content">
+            <label>选择产品：</label>
+            <label class="option" [ngClass]="{active: order.order_kind == 'MM'}">混凝土</label>
+            <label class="option" [ngClass]="{active: order.order_kind != 'MM'}">电子秤</label>
+        </div>
+    </div>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>合同编号：</label>
+            <ion-input type="text" name="contact_no" text-end [(ngModel)]="order.contract_no" readonly></ion-input>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>签约日期：</label>
+            <ion-input type="text" name="order_date" [(ngModel)]="order_date" text-end readonly></ion-input>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>发货日期：</label>
+            <ion-input type="text" name="contact_no" text-end [(ngModel)]="order.delivery_date" readonly></ion-input>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-date-time" (click)="triggerDatePicker()"></i>
+            </button>
+            <ion-item style="display: none">
+                <ion-datetime [monthShortNames]="monthnames" doneText="确 定" cancelText="取 消" displayFormat="YYYY MMM DD" id="date_time" [(ngModel)]="order.delivery_date" name="date"></ion-datetime>
+            </ion-item>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>发货数量：</label>
+            <ion-input type="number" name="delivery_amount" [(ngModel)]="order.delivery_amount" text-end></ion-input>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>{{order.order_kind == 'MM' ? '卸料地址:': '收货地址：'}}</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress({charNum: 1})"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="location" readonly="true" [(ngModel)]="order.address"></ion-textarea>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>联系人电话：</label>
+            <ion-input type="number" name="contact_number" [(ngModel)]="order.contact_number" text-end></ion-input>
+        </div>
+    </form>
+
+
+
+    <div text-center style="margin-top: 25px">
+        <button ion-button color="danger" class="middle" (click)="demandOrder()">提交请求</button>
+    </div>
+
+    <div text-center style="margin-top: 10px; margin-bottom: 30px">
+        <button ion-button color="danger" class="middle" (click)="cancel()">取  消</button>
+    </div>
+
+</ion-content>

@@ -1,0 +1,50 @@
+page-order-match {
+    div .card-header {
+        float: left;
+    }
+
+    div.custom-card div.card-content {
+        font-size: 14px;
+
+        ion-row ion-col {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        ion-row ion-col:nth-child(2) {
+            padding-left: 0px;
+        }
+
+        ion-row ion-col:nth-child(2):before {
+            content: ":   ";
+        }
+
+    }
+
+    div.custom-card > div:first-child {
+        background-color: #19393c;
+        ion-list {
+            float: right;
+            margin: 0px !important;
+
+            ion-item {
+                border-bottom: 0px !important;
+                background-color: #19393c;
+                color: #f3f5f5;
+                min-height: 0px;
+                padding: 7px 15px 7px 70px;
+
+                h2 {
+                    font-size: 14.68px;
+                }
+            }
+
+            ion-item-options {
+                border-bottom: 0;
+                padding: 7px 13px 7px;
+                background-color: #ff6600;
+            }
+        }
+    }
+
+}

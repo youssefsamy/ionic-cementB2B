@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            支付记录
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-balance1"></i>
+            </button>
+            <label>支付情况：</label>
+            <label item-end class="balance">{{total | number: '1.2-2'}}/{{budget | number: '1.2-2'}}</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal bank-account" margin-top>
+        <div class="form-group">
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-bank-account"></i>
+            </button>
+            <label>&nbsp;&nbsp;历史记录：</label>
+        </div>
+
+        <ion-list *ngFor="let item of payList; let i = index">
+            <ion-item>
+                <ion-thumbnail class="thumb-42" item-start>
+                    <i class="custom-icon custom-icon-black-date"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>支付日期:{{item.created_at}}</label>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <i class="custom-icon custom-icon-black-yen"></i>
+                </ion-thumbnail>
+                <div ion-item>
+                    <label>支付金额:{{item.total}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+    </form>
+
+
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="pay()">继续支付</button>
+    </div>
+
+<!--    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="cancel()">취소</button>
+    </div>-->
+
+</ion-content>

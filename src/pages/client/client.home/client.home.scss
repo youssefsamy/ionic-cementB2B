@@ -1,0 +1,244 @@
+page-client-home {
+    ion-header {
+
+        ion-toolbar {
+            button {
+                label {
+                    color: #316d72 !important;
+                    font-size: 13px !important;
+                }
+
+                ion-icon.location-icon, ion-icon.bakcode {
+                    position: relative;
+                }
+
+                ion-icon.location-icon:before {
+                    background-image: url('../assets/icon/location.png');
+                    content: '';
+                    background-size: 100% 100%;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                ion-icon.bakcode:before {
+                    background-image: url('../assets/icon/bakcode.png');
+                    content: '';
+                    background-size: 100% 100%;
+                    width: 35px;
+                    height: 35px;
+                }
+
+            }
+        }
+    }
+
+    ion-content {
+
+        div.qrcode {
+            position: absolute;
+            right: 0px;
+            z-index: 100;
+        }
+
+        div.modal {
+
+            display: inline-block;
+            background-color: #548589;
+
+            .close-button {
+                margin-right: 5px !important;
+                background-color: #548589 !important;
+                height: 30px;
+                ion-icon {
+                    color: #ff6600;
+                    font-size: 45px;
+                    padding-top: 10px;
+                }
+            }
+
+            > div:first-child {
+                min-height: 20px !important;
+            }
+
+            > div.list-item:nth-child(2) {
+                margin-top: 0px;
+                padding-top: 0px;
+                border-bottom: 1px solid #51a0a6;
+            }
+
+            div.list-item {
+                color: white !important;
+                font-size: 1.4rem;
+                margin: 5px 40px 5px 15px;
+                padding: 10px 0px;
+
+                i.custom-icon:before {
+                    vertical-align: middle;
+                    width: 30px;
+                    height: 30px;
+                    background-size: 30px 30px;
+                }
+
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        div.tab {
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            top: 60px;
+
+            ion-buttons {
+                background-color: white;
+                width: 100%;
+                margin-left: 0px !important;
+                button {
+                    background-color: white;
+                    width: 18%;
+                    color: #939393;
+                    margin: 0px;
+                    font-size: 14px!important;
+                }
+
+                button:nth-child(3) {
+                    width: 22%;
+                    border-bottom: 3px solid #939393;
+                    border-radius: 0px;
+                }
+
+                button.activated {
+                    background-color: white !important;
+                }
+
+                button.active {
+                    color: #548589;
+                    border-color: #548589;
+                }
+            }
+            
+            .notification {
+                
+                &:before {
+                    background-color: red;
+                    position: absolute;
+                    border-radius: 100%;
+                    width: 8px;
+                    height: 8px;
+                    right: 8px;
+                    top: 5px;
+                    content: '';
+                }
+            }
+        }
+
+        baidu-map {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    ion-footer {
+        ion-toolbar {
+            background-color: white !important;
+            padding: 0px !important;
+
+            > div:first-child {
+                border-top: none !important;
+            }
+
+            div.tab-bar {
+
+                background-color: white;
+                width: 100%;
+
+                ion-col {
+                    text-align: center;
+
+                    label {
+                        font-size: 11px;
+                    }
+
+                    ion-icon {
+                        position: relative;
+                        display: block;
+                    }
+
+                    ion-icon:before {
+                        background-size: 100% 100%;
+                        width: 35px;
+                        height: 35px;
+                        content: '';
+                    }
+
+                    ion-icon.mixing-station:before {
+                        background-image: url('../assets/icon/mixing-station.png');
+                    }
+
+                    ion-icon.electronic-scales:before {
+                        background-image: url('../assets/icon/electronic-scales.png');
+                    }
+
+                    ion-icon.all:before {
+                        background-image: url('../assets/icon/all.png');
+                    }
+                }
+
+                ion-col.active {
+                    label {
+                        color: #548589;
+                    }
+
+                    ion-icon.mixing-station:before {
+                        background-image: url('../assets/icon/mixing-station-active.png');
+                    }
+
+                    ion-icon.electronic-scales:before {
+                        background-image: url('../assets/icon/electronic-scales-active.png');
+                    }
+
+                    ion-icon.all:before {
+                        background-image: url('../assets/icon/all-active.png');
+                    }
+                }
+
+            }
+
+            div.search-form {
+
+                background-color: #f7f7f7 !important;
+
+                ion-col {
+                    padding: 0px;
+
+                    ion-searchbar {
+                        background-color: #f7f7f7 !important;
+                        border-bottom: none;
+
+                        input.searchbar-input {
+                            background-color: white !important;
+                        }
+
+                    }
+
+                    label.search-btn {
+                        color: #548589;
+                        display: inline-block;
+                        text-align: center;
+                        width: 100%;
+                    }
+                }
+
+                ion-col[col-2] {
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+        }
+    }
+}

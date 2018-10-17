@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            注册
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <form class="form-stacked big">
+        <div class="form-group">
+            <label>手机号:</label>
+            <ion-input type="number" [(ngModel)]="info.phone" placeholder="请输入手机号" name="phone_number"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>验证码:</label>
+            <div ion-item>
+                <ion-input type="number" [(ngModel)]="info.sms_code" name="verify_code"></ion-input>
+                <button class="verify-btn" ion-button color="danger" item-right (click)="receiveCode()">{{time ? time + 's' : '发送验证码'}}
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>密码:</label>
+            <ion-input type="password" [(ngModel)]="info.password" name="password"></ion-input>
+        </div>
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="register()">注 册</button>
+    </div>
+
+</ion-content>

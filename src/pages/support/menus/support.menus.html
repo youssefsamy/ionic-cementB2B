@@ -1,0 +1,53 @@
+<ion-menu [content]="content" type="overlay">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons start>
+                <button ion-button menuToggle icon-only>
+                    <ion-icon name='menu' menuToggle></ion-icon>
+                </button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+        <div ion-item>
+            <button ion-button item-end menuToggle class="close-button">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </div>
+
+        <div class="list-item" (click)="goPersonalCenter()">
+            <i class="custom-icon custom-icon-user"></i>
+            <label>用户名: {{name}}</label>
+        </div>
+
+        <div class="list-item" (click)="goMessage()" style="position: relative" [ngClass]="{notification: setting.badge.notify == 1}">
+            <i class="custom-icon custom-icon-message"></i>
+            <label>消息管理</label>
+        </div>
+
+        <div class="list-item" (click)="goToFundManagementHome()">
+            <i class="custom-icon custom-icon-fund1"></i>
+            <label>资金管理</label>
+        </div>
+
+        <div class="list-item" (click)="goEvaluation()">
+            <i class="custom-icon custom-icon-evaluation"></i>
+            <label>评价管理</label>
+        </div>
+
+        <div class="list-item" (click)="goToDataAnalyticsPage()">
+            <i class="custom-icon custom-icon-data-statistics"></i>
+            <label>数据统计</label>
+        </div>
+
+        <div class="list-item" (click)="goToAdvertisePage()">
+            <i class="custom-icon custom-icon-recruitment"></i>
+            <label>招聘广告</label>
+        </div>
+
+
+    </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            数据统计
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="main-wrapper">
+
+        <div class="data-container order-data" *ngIf="userRole == 'business'" (click)="goToFactoryDataAnalyticsPage()">
+            <img src="assets/icon/data-statistics1.png">
+            <h3>订单数据统计</h3>
+        </div>
+
+        <div class="data-container order-data" *ngIf="userRole == 'servicer'" (click)="goToSupportOrderAnalyticsPage()">
+            <img src="assets/icon/data-statistics1.png">
+            <h3>订单数据统计</h3>
+        </div>
+
+        <div class="data-container order-data" *ngIf="userRole == 'servicer'" (click)="goToSupportIncomeAnalyticsPage()">
+            <img src="assets/icon/data-statistics1.png">
+            <h3>收入统计</h3>
+        </div>
+
+        <div class="data-container">
+            <h3>称重物联网系统（建设中）</h3>
+        </div>
+
+        <div class="data-container">
+            <h3>称重物联网系统（建设中）</h3>
+        </div>
+
+        <div class="data-container">
+            <h3>称重物联网系统（建设中）</h3>
+        </div>
+
+        <div class="data-container">
+            <h3>称重物联网系统（建设中）</h3>
+        </div>
+
+    </div>
+
+</ion-content>

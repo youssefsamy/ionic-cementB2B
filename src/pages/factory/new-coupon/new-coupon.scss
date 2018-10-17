@@ -1,0 +1,81 @@
+page-new-coupon {
+
+    form {
+        border: none!important;
+        padding: 0px!important;
+    }
+
+    .custom-icon:before {
+        display: inline-block;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+    }
+
+    label {
+        color: #316d72;
+        font-size: 14px !important;
+    }
+
+    ion-input {
+
+        border: 1px solid #ff6600;
+        height: 30px;
+        padding: 2px 5px;
+        text-align: right;
+
+        input {
+            margin: 3px!important;
+            text-align: right;
+        }
+
+    }
+
+    ion-list:first-child {
+        margin-top: 45px;
+    }
+
+    ion-item.download-input {
+        ion-input {
+            margin-left: 50px!important;
+            margin-right: 6px!important;
+        }
+    }
+    div.input-content {
+
+        padding: 5px 40px 5px 60px;
+
+        div {
+            overflow: visible!important;
+        }
+
+        &.amount {
+            ion-input {
+                position: relative;
+            }
+            ion-input:before {
+                content: '元';
+                position: absolute;
+                right: -20px;
+                color: #939393;
+            }
+        }
+
+    }
+
+    div.button-wrapper {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            padding: 0px 50px;
+        }
+
+        &:last-child {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+    }
+
+}

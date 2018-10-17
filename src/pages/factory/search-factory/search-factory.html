@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            选择地区
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="form-group search-form">
+        <ion-row>
+            <ion-col col-10>
+                <ion-searchbar placeholder="请输入地址" [(ngModel)]="searchKey" name="searchKey" animated="true"></ion-searchbar>
+            </ion-col>
+            <ion-col col-2>
+                <button ion-button item-end color="danger" class="search-btn" (click)="goToSearchFactoryResultPage()">搜 索</button>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div class="form-group current-location">
+        <div class="title">
+            <label>当前位置：</label>
+        </div>
+        <div class="location">
+            <label>{{city}}</label>
+        </div>
+    </div>
+
+    <div class="form-group search-histroy">
+        <div class="title">
+            <label>最近访问过：</label>
+        </div>
+        <div class="history">
+            <label *ngFor="let item of histories; let i = index" (click)="searchFromHistory(i)">{{item}}</label>
+        </div>
+    </div>
+</ion-content>

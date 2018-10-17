@@ -1,0 +1,41 @@
+page-support-income-analytics {
+    ion-content {
+        ion-segment {
+            margin-top: 10px;
+
+            ion-segment-button {
+                margin-left: 6px!important;
+                border: 1px solid #316d72!important;
+                border-radius: 4px!important;
+                overflow: visible!important;
+
+                &:last-child {
+                    margin-right: 5px!important;
+                }
+
+                &.segment-activated:before {
+
+                    width: 1px;
+                    height: 1px;
+                    content: '';
+                    bottom: -14px;
+                    left: 45%;
+                    border: 7px solid transparent;
+                    border-top-color: #316d72;
+                    position: absolute;
+                }
+
+            }
+        }
+
+        div.custom-card {
+            text-align: center;
+
+            div.card-content {
+                padding: 25px 0px;
+            }
+
+        }
+    }
+
+}

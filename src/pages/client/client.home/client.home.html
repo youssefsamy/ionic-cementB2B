@@ -1,0 +1,101 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToSearchFactoryPage()">
+                <ion-icon class="location-icon"></ion-icon>
+                <label>{{city}}</label>
+            </button>
+        </ion-buttons>
+
+        <ion-title>首页</ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="isQrcodeModalShow = !isQrcodeModalShow;">
+                <ion-icon class="bakcode"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="qrcode modal" *ngIf="isQrcodeModalShow">
+        <div ion-item>
+            <button ion-button item-end menuToggle class="close-button" (click)="isQrcodeModalShow = false;">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </div>
+        <div class="list-item" (click)="scanQrcode()">
+            <i class="custom-icon custom-icon-qrcode-scan"></i>
+            <label>扫一扫</label>
+        </div>
+
+        <div class="list-item" (click)="showMyQrcode()">
+            <i class="custom-icon custom-icon-qrcode"></i>
+            <label>专属二维码</label>
+        </div>
+    </div>
+    <div class="tab">
+        <ion-buttons>
+            <button ion-button (click)="goToClientOrderMangementPage()" [ngClass]="{notification: setting.badge.confirm > 0 || setting.badge.pay > 0 || setting.badge.pending > 0 || setting.badge.complete > 0}">订单</button>
+            <button ion-button (click)="track()">追踪</button>
+            <button ion-button [ngClass]="{'active': isReleaseModalShow}" (click)="isReleaseModalShow = !isReleaseModalShow;">发布需求</button>
+            <button ion-button (click)='goToMessageHomePage()' [ngClass]="{notification: setting.badge.notify == 1}">消息</button>
+            <button ion-button (click)="goToClientCenterHomePage()">我的</button>
+        </ion-buttons>
+
+        <div class="release modal" *ngIf="isReleaseModalShow">
+
+            <div ion-item>
+                <button ion-button item-end menuToggle class="close-button" (click)="isReleaseModalShow = false;">
+                    <ion-icon name="close"></ion-icon>
+                </button>
+            </div>
+            <div class="list-item" (click)="goToSubmitOrderPage()">
+                <i class="custom-icon custom-icon-submit-order"></i>
+                <label>提交订单</label>
+            </div>
+
+            <div class="list-item" (click)="goToPendingPage()">
+                <i class="custom-icon custom-icon-delivery-request"></i>
+                <label>发货请求</label>
+            </div>
+        </div>
+    </div>
+    <img [src]="base64Image" *ngIf="base64Image" />
+    <baidu-map [ak]="mapApi" protocol="https:" [options]="opts" [offline]="offlineOpts" (onMapLoaded)="loadMap($event)" (onMarkerClicked)="clickMarker($event)" (onClicked)="clickmap($event)" ></baidu-map>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="custom_white">
+        <div class="search-form">
+            <ion-row>
+                <ion-col col-10>
+                    <ion-searchbar placeholder="请输入企业名称" animated="true" [(ngModel)]="searchKey" name="searchKey"(ionInput)="onInput($event)"
+                                   (ionCancel)="onCancel($event)"></ion-searchbar>
+                </ion-col>
+                <ion-col col-2>
+                    <label item-end class="search-btn" (click)="goToSearchResult()">搜 索</label>
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <div class="tab-bar">
+            <ion-row>
+                <ion-col col-4 [ngClass]="{'active': state == 'mortar'}" (click)="changeState('mortar')">
+                    <ion-icon class="mixing-station"></ion-icon>
+                    <label>搅拌站</label>
+                </ion-col>
+                <ion-col col-4  [ngClass]="{'active': state == 'balance'}" (click)="changeState('balance')">
+                    <ion-icon class="electronic-scales"></ion-icon>
+                    <label>电子秤</label>
+                </ion-col>
+                <ion-col col-4  [ngClass]="{'active': state == 'all'}" (click)="changeState('all')">
+                    <ion-icon class="all"></ion-icon>
+                    <label>全部</label>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            消息
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="custom-card" *ngFor="let notify of notifications; let i = index" (click)="goToDetailPage(i)">
+        <div class="card-header">
+            <label>标题：</label>
+            <label>{{notify.title}}</label>
+            <label style="float: right; padding-right: 15px">{{notify.date}}</label>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="card-content">
+            <p>{{notify.description}}</p>
+        </div>
+    </div>
+
+    <div class="empty-screen" *ngIf="notifications.length == 0">
+        <h3>{{result}}</h3>
+    </div>
+</ion-content>

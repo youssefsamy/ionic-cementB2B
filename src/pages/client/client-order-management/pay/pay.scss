@@ -1,0 +1,15 @@
+page-pay {
+
+    ion-toolbar {
+        button {
+            ion-icon.my-shop:before {
+                background-image: url('../assets/icon/my-shop.png');
+                content: '';
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                margin-right: 3px;
+            }
+        }
+    }
+}

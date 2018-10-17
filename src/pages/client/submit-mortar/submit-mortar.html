@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            订单草稿
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="custom-form-group">
+        <div class="title">
+            <label>强度：</label>
+        </div>
+        <div class="group-content">
+            <label *ngFor="let mKind of mortarKind; let i = index" class="label" [ngClass]="{active: mKind.id == info.selected_mortarKind}">
+                <input type="radio" name="radioKind" value="{{mKind.id}}" [(ngModel)]="info.selected_mortarKind"/>{{mKind.name}}
+            </label>
+        </div>
+    </div>
+
+    <div class="custom-form-group">
+        <div class="title">
+            <label>骨料：</label>
+        </div>
+        <div class="group-content">
+            <label *ngFor="let mType of mortarType; let i = index" class="label" [ngClass]="{active:  mType.id == info.selected_mortarType}">
+                <input type="radio" name="radioType" value="{{mType.id}}" [(ngModel)]="info.selected_mortarType"/>{{mType.name}}
+            </label>
+        </div>
+    </div>
+
+    <div class="custom-form-group">
+        <div class="title">
+            <label>外加料：</label>
+        </div>
+        <div class="group-content">
+            <label *ngFor="let mRate of mortarRate; let i = index" class="label" [ngClass]="{active:  mRate.id == info.selected_mortarRate}">
+                <input type="radio" name="radioRate" value="{{mRate.id}}" [(ngModel)]="info.selected_mortarRate"/>{{mRate.name}}
+            </label>
+        </div>
+    </div>
+
+    <div class="custom-form-group">
+        <div class="title">
+            <label>浇筑部位：</label>
+        </div>
+        <div class="group-content">
+            <label *ngFor="let mUse of mortarUse; let i = index" class="label" [ngClass]="{active:  mUse.id == info.selected_mortarUse}">
+                <input type="radio" name="radioUse" value="{{mUse.id}}" [(ngModel)]="info.selected_mortarUse"/>{{mUse.name}}
+            </label>
+        </div>
+    </div>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>数量：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <ion-input type="number" name="amount" [(ngModel)]="info.amount" text-end></ion-input>
+            <label>方</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>预期价格：</label>
+            <ion-input type="number" name="budget" [(ngModel)]="info.budget" text-end></ion-input>
+            <label>元</label>
+        </div>
+    </form>
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>联系电话：</label>
+            <ion-input type="number" name="contact_number"  [(ngModel)]="info.contact_number"></ion-input>
+            <label style="color: #f7f7f7;">元</label>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" margin-top>
+        <div class="form-group">
+            <label>卸料地址：</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress()"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="location" [(ngModel)]="info.address" readonly="true"></ion-textarea>
+        </div>
+    </form>
+
+
+
+    <form class="form-horizontal" margin-top>
+        <label style="margin-bottom: 7px; display: inline-block;">备注：</label>
+        <div class="form-group">
+            <ion-textarea name="introduction" [(ngModel)]="info.note"></ion-textarea>
+        </div>
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="submitMortar()">申请订单</button>
+    </div>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="cancel()">取  消</button>
+    </div>
+
+</ion-content>

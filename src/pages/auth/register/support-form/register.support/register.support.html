@@ -1,0 +1,178 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            申请资料
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [ngSwitch]="role">
+    <form class="form-horizontal" margin-top>
+
+        <div class="form-group">
+            <label>头像：</label>
+            <img src="assets/icon/factory-logo.png" class="factory-logo" (click)="uploadPhoto('photo')"
+                 *ngIf="info.photo == ''">
+            <img [src]="info.photo" class="photo-image" (click)="uploadPhoto('photo')" *ngIf="info.photo != ''">
+        </div>
+
+        <div class="form-group">
+            <label>用户昵称：</label>
+            <ion-input type="text" name="alias" [(ngModel)]="info.alias"></ion-input>
+
+        </div>
+
+        <div class="form-group">
+            <label>姓名：</label>
+            <ion-input type="text" name="name" [(ngModel)]="info.name"></ion-input>
+        </div>
+
+        <div class="form-group">
+            <label>生日：</label>
+            <ion-input type="text" name="contact_no" text-end [(ngModel)]="info.birthday" readonly></ion-input>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-date-time" (click)="triggerDatePicker()"></i>
+            </button>
+            <ion-item style="display: none">
+                <ion-datetime [monthShortNames]="monthnames" doneText="确 定" cancelText="取 消" displayFormat="YYYY MMM DD" id="date_time" [(ngModel)]="info.birthday"
+                              name="date"></ion-datetime>
+            </ion-item>
+
+        </div>
+
+        <div class="form-group">
+            <label>现住地址：</label>
+            <button ion-button icon-only>
+                <i class="custom-icon custom-icon-plus" (click)="updateAddress({charNum: 1})"></i>
+            </button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <ion-textarea class="map" name="location" [(ngModel)]="info.address" readonly="true"></ion-textarea>
+        </div>
+
+        <!-- Driver -->
+        <ng-container *ngSwitchCase="'driver'">
+            <div class="form-group">
+                <label>驾照照片：</label>
+                <button ion-button icon-only (click)="uploadPhoto('certification')" *ngIf="info.certification == ''">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+
+                <img class="business_license" [src]="info.certification" *ngIf="info.certification != ''"
+                     (click)="uploadPhoto('certification')">
+            </div>
+
+            <div class="form-group">
+                <ion-row>
+                    <ion-col col-5 class="form-group">
+                        <label>驾&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</label>
+                        <ion-input name="period" type="number" [(ngModel)]="info.period"></ion-input>
+                    </ion-col>
+                    <ion-col col-7 class="form-group">
+                        <label>驾驶类型：</label>
+                        <ion-select  okText="确定" cancelText="取消" style="width: 100%" [(ngModel)]="info.driver_type" name="drivertype">
+                            <ion-option value="A1">A1</ion-option>
+                            <ion-option value="A2">A2</ion-option>
+                            <ion-option value="A3">A3</ion-option>
+                            <ion-option value="B1">B1</ion-option>
+                            <ion-option value="B2">B2</ion-option>
+                            <ion-option value="C1">C1</ion-option>
+                            <ion-option value="C2">C2</ion-option>
+                            <ion-option value="C3">C3</ion-option>
+                            <ion-option value="C4">C4</ion-option>
+                            <ion-option value="D">D</ion-option>
+                            <ion-option value="E">E</ion-option>
+                            <ion-option value="F">F</ion-option>
+                            <ion-option value="M">M</ion-option>
+                            <ion-option value="N">N</ion-option>
+                            <ion-option value="P">P</ion-option>
+                        </ion-select>
+
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ng-container>
+
+        <!-- Installer -->
+        <ng-container *ngSwitchCase="'installer'">
+            <div class="form-group">
+                <label>资格证书：</label>
+                <button ion-button icon-only (click)="uploadPhoto('certification')" *ngIf="info.certification == ''">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+                <img class="business_license" [src]="info.certification" *ngIf="info.certification != ''"
+                     (click)="uploadPhoto('certification')">
+            </div>
+        </ng-container>
+
+        <!-- Repairer -->
+        <ng-container *ngSwitchCase="'repairer'">
+            <div class="form-group">
+                <label>资格证书：</label>
+                <button ion-button icon-only (click)="uploadPhoto('certification')" *ngIf="info.certification == ''">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+
+                <img class="business_license" [src]="info.certification" *ngIf="info.certification != ''"
+                     (click)="uploadPhoto('certification')">
+            </div>
+        </ng-container>
+
+
+        <!-- Businesser -->
+        <ng-container *ngSwitchCase="'businesser'">
+            <div class="form-group">
+                <label>公司名称：</label>
+                <ion-input type="text" name="companyname" [(ngModel)]="info.company_name"></ion-input>
+            </div>
+
+            <div class="form-group">
+                <label>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：</label>
+                <ion-input type="text" name="companyduty" [(ngModel)]="info.company_duty"></ion-input>
+            </div>
+        </ng-container>
+
+        <!-- Contact Number -->
+        <div class="form-group">
+            <label>联系电话：</label>
+            <ion-input type="number" name="contactNumber" [(ngModel)]="info.contact_number"></ion-input>
+        </div>
+
+
+        <!-- Businesser -->
+        <ng-container *ngSwitchCase="'businesser'">
+            <div class="form-group">
+                <label>身份证：</label>
+
+                <label style="margin-left: 20px">正面</label>
+                <button ion-button icon-only (click)="uploadPhoto('front')">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+
+                <label style="margin-left: 30px">反面</label>
+                <button ion-button icon-only (click)="uploadPhoto('back')">
+                    <i class="custom-icon custom-icon-plus"></i>
+                </button>
+            </div>
+
+
+            <div class="form-group" *ngIf="info.idcard_front != '' || info.idcard_back != ''" style="text-align: center">
+                <img class="idcard" [src]="info.idcard_front" *ngIf="info.idcard_front != ''" (click)="showImage(info.idcard_front)">
+                <img class="idcard" [src]="info.idcard_back" *ngIf="info.idcard_back != ''" (click)="showImage(info.idcard_back)">
+            </div>
+
+            <div class="form-group">
+                <label>身份证号码：</label>
+                <ion-input type="text" name="cardnumber" [(ngModel)]="info.idcard_number"></ion-input>
+            </div>
+        </ng-container>
+
+    </form>
+
+    <div text-center margin-top>
+        <button ion-button color="danger" class="middle" (click)="register()">申 请</button>
+    </div>
+
+
+</ion-content>

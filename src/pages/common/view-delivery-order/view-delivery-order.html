@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            订单信息
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div style="padding: 0px 17px">
+
+        <ion-list *ngIf="userRole == 'customer'">
+            <ion-item>
+                <div ion-item>
+                    <label>类型：</label>
+                    <label item-end>{{info.order_kind == 'M' ? '混凝土订单' : '电子秤订单'}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list>
+            <ion-item>
+                <div ion-item>
+                    <label>合同编号：</label>
+                    <label item-end>{{info.contract_no}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list>
+            <ion-item>
+                <div ion-item>
+                    <label>发货数量：</label>
+                    <label item-end>{{info.delivery_amount}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <div ion-item>
+                    <label>签约日期：</label>
+                    <label item-end>{{info.delivery_date}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="userRole != 'customer'">
+            <ion-item>
+                <div ion-item>
+                    <label>预期价格：</label>
+                    <label item-end *ngIf="userRole == 'business'">{{info.business_budget}}</label>
+                    <label item-end *ngIf="userRole == 'servicer'">{{info.servicer_budget}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <div ion-item>
+                    <label>联系电话：</label>
+                    <label item-end>{{info.contact_number}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list>
+            <ion-item>
+                <div ion-item>
+                    <label>收货地址：</label>
+                    <label item-end>{{info.address.length < 10? info.address: info.address.substr(0,10) + '...'}}</label>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

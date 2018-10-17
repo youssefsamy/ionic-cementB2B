@@ -1,0 +1,25 @@
+page-pending {
+    ion-toolbar {
+        button {
+            ion-icon.my-shop:before {
+                background-image: url('../assets/icon/my-shop.png');
+                content: '';
+                background-size: 100% 100%;
+                width: 30px;
+                height: 30px;
+                margin-right: 3px;
+            }
+        }
+    }
+    
+    button.button-call {
+        
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        
+        img {
+            width: 30px;
+        }
+        
+    }
+}

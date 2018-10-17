@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            保证金
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+
+        <div class="fund-logo-header">
+            <div class="fund-logo">
+                <img class="logo" src="/assets/icon/fund-logo.png" alt="Logo"/>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-balance1"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>我的余额</label>
+                        <label item-end>36348.70¥</label>
+                    </div>
+                </ion-item>
+
+                <div ion-item class="profile-content">
+                    <button ion-button class="btn-recharge" item-end (click)="goToRecharge()">充&nbsp;&nbsp;&nbsp;&nbsp;值</button>
+                </div>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-margin"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>保证金</label>
+                        <label item-end>650000.00¥</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <div>
+                <button ion-button color="danger" class="btn-login">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

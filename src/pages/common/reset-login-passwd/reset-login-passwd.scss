@@ -1,0 +1,63 @@
+page-reset-login-passwd {
+
+
+    .custom-icon:before {
+        display: inline-block;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+    }
+
+    label {
+        color: #316d72;
+        font-size: 14px !important;
+    }
+
+    ion-input {
+
+        border: 1px solid green;
+        height: 30px;
+        padding: 2px 5px;
+        text-align: right;
+        border-radius: 2px;
+
+        &.unConfirmed {
+            border-color: #ff6e0d;
+        }
+
+        input {
+            margin: 3px!important;
+            text-align: right;
+        }
+    }
+
+    ion-list:first-child {
+        margin-top: 45px;
+    }
+
+    ion-list {
+        > ion-item {
+
+            div.item-inner {
+                padding: 5px 0px!important;
+            }
+
+        }
+    }
+
+
+    div.button-wrapper {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            padding: 0px 50px;
+        }
+
+        &:last-child {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+    }
+}

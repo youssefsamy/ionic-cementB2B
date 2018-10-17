@@ -1,0 +1,22 @@
+page-view-delivery-order {
+    ion-list {
+        border-left: 4px solid #c8c7cc;
+        border-right: 1px solid #c8c7cc;
+    }
+    ion-list:first-child {
+        margin-top: 25px;
+    }
+
+    div.profile-content {
+        padding: 5px 17px 5px 21px;
+    }
+
+    div.button-wrapper {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            padding: 0px 50px;
+        }
+    }
+}

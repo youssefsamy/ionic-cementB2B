@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            消息管理
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="icon-list grey" margin-top>
+        <ion-item (click)="goToOrderMatch()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-order-match"></i>
+            </ion-thumbnail>
+            <div>
+                订单匹配消息
+            </div>
+
+        </ion-item>
+
+        <ion-item (click)="goToSystemInfo()">
+            <ion-thumbnail item-start>
+                <i class="custom-icon custom-icon-system-info"></i>
+            </ion-thumbnail>
+            <div>
+                系统消息
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

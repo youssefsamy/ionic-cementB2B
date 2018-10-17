@@ -1,0 +1,39 @@
+/** override component styles*/
+@import 'icon';
+@import 'button';
+@import 'form';
+@import 'list';
+@import 'custom-style';
+@import 'custom-tab-icons.scss';
+
+ion-header {
+    border-bottom: 1px solid #667b7d;
+    ion-title.title {
+
+    }
+}
+.item-ios.item-block .item-inner {
+    border-bottom: 0px;
+    padding-right: 0px;
+}
+
+/** custom classes */
+.flex {
+    display: flex;
+}
+
+ion-navbar, ion-toolbar {
+
+    button {
+        ion-icon {
+            color: #316d72;
+            font-size: 1.5em!important;
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+page-margin {
+  .fund-logo-header {
+    text-align: center;
+    color: #316d72;
+    background-color: #f7f7f7;
+    padding-bottom: 50px;
+    .fund-logo {
+      text-align: center;
+      padding-top: 55px;
+
+      img.logo {
+        width: 100px;
+        height: 100px;
+      }
+
+
+    }
+  }
+
+  .main-wrapper > div:last-child{
+    margin-top: 80px;
+    text-align: center;
+
+    button {
+      padding: 0px 50px;
+    }
+  }
+
+  div.profile-content {
+    padding: 5px 17px 5px 21px;
+
+    button.btn-recharge {
+      background-color: #e9e8e8;
+      color: #ff6600;
+      font-size: 14px;
+      padding: 5px 15px;
+    }
+
+  }
+
+
+
+}

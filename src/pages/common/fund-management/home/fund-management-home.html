@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            资金管理
+        </ion-title>
+
+        <!--<ion-buttons end (click)="viewFund()">-->
+            <!--<button ion-button icon-only>-->
+                <!--<ion-icon class="view-fund"></ion-icon>-->
+            <!--</button>-->
+        <!--</ion-buttons>-->
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <div>
+
+        <div class="fund-logo-header">
+            <div class="fund-logo">
+                <img class="logo" src="assets/icon/fund-logo.png" alt="Logo"/>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-balance1"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>我的余额</label>
+                        <label item-end>{{balanceInfo.balance | number: '1.2-2'}}¥</label>
+                    </div>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail class="thumb-42" item-start>
+                        <i class="custom-icon custom-icon-total-cach"></i>
+                    </ion-thumbnail>
+                    <div ion-item>
+                        <label>提现总额</label>
+                        <label item-end>{{balanceInfo.outmoney | number: '1.2-2'}}¥</label>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <div class="button-wrapper">
+                <button ion-button color="danger" class="btn-login" (click)="goToManagmentBankAccount()">银行帐户管理</button>
+            </div>
+
+            <div class="button-wrapper">
+                <button ion-button color="danger" class="btn-login" (click)="goToWithdrawPage()">申请提现</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

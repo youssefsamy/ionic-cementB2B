@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            编辑用户信息
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+    <ion-list>
+        <ion-item (click)="showImage()">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-avatar"></i>
+            </ion-thumbnail>
+            <button ion-item>
+                头像
+            </button>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-nickname"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>用户昵称</label>
+                <label item-end>{{userinfo.name}}</label>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item (click)="goToCardCertification()">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-card"></i>
+            </ion-thumbnail>
+            <button ion-item>
+                绑定银行卡
+            </button>
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="userRole == 'business'">
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-profile"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>个人简介</label>
+            </div>
+        </ion-item>
+        <div ion-item class="profile-content">
+            <ion-thumbnail class="thumb-42" item-start></ion-thumbnail>
+            <p item-start>{{userinfo.introduction}}</p>
+        </div>
+    </ion-list>
+
+  <!--  <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login" (click)="goToMargin()">下一步</button>
+    </div>
+    <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login">返&nbsp;&nbsp;&nbsp;&nbsp;回</button>
+    </div>-->
+</ion-content>

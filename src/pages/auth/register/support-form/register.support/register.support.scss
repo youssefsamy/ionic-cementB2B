@@ -1,0 +1,31 @@
+page-register-support {
+    .flex {
+        align-items: center;
+        height: 100%;
+    }
+
+    form {
+        margin-bottom: 50px;
+        font-size: 12px;
+    }
+
+    ion-select {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        color: #939393;
+        padding-left: 0.9em !important;
+        padding-right: 0.9em !important;
+    }
+
+    ion-textarea.map {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        color: #939393;
+        padding-left: 0.9em !important;
+        padding-right: 0.9em !important;
+        height: 85px;
+        width: 100%;
+    }
+}

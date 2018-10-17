@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            申请提现
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-balance1"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label>余额</label>
+                <label item-end style="margin-right: 17px">{{balance | number: '1.2-2'}}¥</label>
+            </div>
+        </ion-item>
+
+        <!--<ion-item class="select-type">-->
+            <!--<ion-thumbnail class="thumb-42" item-start>-->
+                <!--<i class="custom-icon custom-icon-payment"></i>-->
+            <!--</ion-thumbnail>-->
+            <!--<div ion-item>-->
+                <!--<label ion-content item-start>选择账号类型</label>-->
+                <!---->
+                <!--<ion-item item-end>-->
+
+                    <!--<ion-select style="width: 100%" name="drivertype">-->
+                        <!--<ion-option value="A1">A1</ion-option>-->
+                        <!--<ion-option value="A2">A2</ion-option>-->
+                        <!--<ion-option value="A3">A3</ion-option>-->
+                        <!--<ion-option value="A4">A4</ion-option>-->
+                    <!--</ion-select>-->
+
+                <!--</ion-item>-->
+            <!--</div>-->
+        <!--</ion-item>-->
+
+        <ion-item class="balance">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-balance2"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>申请余额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="currentpassword"></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+        <ion-item class="download-input">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon custom-icon-key1"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>提现密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="newpassword" [(ngModel)]="password"
+                               [ngClass]="{unConfirmed: confirmed == false}" (ionChange)="confirm()"></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+
+        <ion-item class="download-input">
+            <ion-thumbnail class="thumb-42" item-start>
+                <i class="custom-icon"></i>
+            </ion-thumbnail>
+            <div ion-item>
+                <label ion-content item-start>确认提现密码</label>
+                <ion-item item-end>
+                    <ion-input item-end type="password" name="confirmpassword" [(ngModel)]="confirm_password"
+                               [ngClass]="{unConfirmed: confirmed == false}" (ionChange)="confirm()"></ion-input>
+                </ion-item>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+    </div>
+
+    <div class="button-wrapper">
+        <button ion-button color="danger" class="btn-login" (click)="cancel()">取&nbsp;&nbsp;&nbsp;&nbsp;消</button>
+    </div>
+</ion-content>

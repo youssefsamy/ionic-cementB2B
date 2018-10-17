@@ -1,0 +1,27 @@
+ion-list.icon-list.grey {
+    margin-left: 40px;
+    margin-right:40px;
+    ion-thumbnail {
+        display: flex;
+        align-items: center;
+    }
+
+    ion-item {
+        background: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 30px 0px 30px 60px;
+        color: color($colors, primary);
+        font-size: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .custom-icon:before {
+        width: 50px;
+        height: 50px;
+        background-size: 50px 50px;
+    }
+
+}

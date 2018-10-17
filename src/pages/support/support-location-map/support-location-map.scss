@@ -1,0 +1,13 @@
+page-support-location-map {
+    baidu-map {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    ion-header {
+        ion-icon[name='md-close'] {
+            padding-right: 8px;
+        }
+    }
+}
